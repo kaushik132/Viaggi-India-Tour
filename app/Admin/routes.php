@@ -14,6 +14,8 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('home-banners', HomeBannerController::class);
     $router->resource('contacts', ContactController::class);
+    $router->resource('regions', RegionController::class);
+
 
 
 

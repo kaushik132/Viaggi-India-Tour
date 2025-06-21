@@ -203,7 +203,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
+                                        <img src="{{url('project/images/sliders-image/Goa.webp')}}" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
                                             <h3>Goa</h3>
                                             <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
@@ -220,15 +220,15 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                             <span class="review ms-2 text-muted">1.5k Reviews</span>
                                         </div>
 
                                         <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                         </div>
 
@@ -242,7 +242,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="images/sliders-image/Varanasi.webp" alt="" class="img-fluid">
+                                        <img src="{{url('project/images/sliders-image/Varanasi.webp')}}" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
                                             <h3>Varanasi</h3>
                                             <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
@@ -259,15 +259,15 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                             <span class="review ms-2 text-muted">1.5k Reviews</span>
                                         </div>
 
                                         <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                         </div>
                                         <div>
@@ -280,7 +280,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
+                                        <img src="{{url('project/images/sliders-image/Goa.webp')}}" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
                                             <h3>Goa</h3>
                                             <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
@@ -297,15 +297,15 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                             <span class="review ms-2 text-muted">1.5k Reviews</span>
                                         </div>
 
                                         <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                         </div>
                                         <div>
@@ -318,7 +318,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
+                                        <img src="{{url('project/images/sliders-image/Goa.webp')}}" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
                                             <h3>Goa</h3>
                                             <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
@@ -335,15 +335,15 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                             <span class="review ms-2 text-muted">1.5k Reviews</span>
                                         </div>
 
                                         <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
+                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                         </div>
                                         <div>
@@ -372,15 +372,15 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center me-4">
                     <h1 class="me-2">incredible-india</h1>
-                    <img src="images/indiaLogo.webp" alt="">
+                    <img src="{{url('project/images/indiaLogo.webp')}}" alt="">
                 </div>
                 <div class="d-flex align-items-center me-4">
                     <h1 class="me-2">incredible-india</h1>
-                    <img src="images/indiaLogo.webp" alt="">
+                    <img src="{{url('project/images/indiaLogo.webp')}}" alt="">
                 </div>
                 <div class="d-flex align-items-center me-4">
                     <h1 class="me-2">incredible-india</h1>
-                    <img src="images/indiaLogo.webp" alt="">
+                    <img src="{{url('project/images/indiaLogo.webp')}}" alt="">
                 </div>
             </div>
         </marquee>
@@ -404,7 +404,7 @@
                     <!-- Right Column (Image) -->
                     <div class="col-md-5 mb-md-0">
                         <div class="image-container position-relative">
-                            <img src="images/Indiya-Get.webp" alt="" class="img-fluid content-img">
+                            <img src="{{url('project/images/Indiya-Get.webp')}}" alt="" class="img-fluid content-img">
                         </div>
                     </div>
 
@@ -424,7 +424,7 @@
 
      <section class="baner-2 position-relative">
     <!-- Background image as <img>, placed behind content -->
-    <img src="images/peric.webp" alt="Background" class="bg-img position-absolute w-100 h-100 top-0 start-0" style="object-fit: cover; z-index: -1;" />
+    <img src="{{url('project/images/peric.webp')}}" alt="Background" class="bg-img position-absolute w-100 h-100 top-0 start-0" style="object-fit: cover; z-index: -1;" />
 
     <div class="container">
         <div class="baner-2-content text-center">
@@ -520,7 +520,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client.webp" alt="" class="img-fluid"
+                                                    <img src="{{url('project/images/client-image/client.webp')}}" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -549,7 +549,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client-2.webp" alt="" class="img-fluid"
+                                                    <img src="{{url('project/images/client-image/client-2.webp')}}" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -578,7 +578,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client.webp" alt="" class="img-fluid"
+                                                    <img src="{{url('project/images/client-image/client.webp')}}" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -607,7 +607,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client-2.webp" alt="" class="img-fluid"
+                                                    <img src="{{url('project/images/client-image/client-2.webp')}}" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -636,7 +636,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client.webp" alt="" class="img-fluid"
+                                                    <img src="{{url('project/images/client-image/client.webp')}}" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
