@@ -3,36 +3,38 @@
 
 
 
-
     <main>
 
 
         <!-- baner section-->
 
+
+
         <div class="swiper myUniqueSwiper" style="position: relative;">
             <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+             
+
+                <!-- Slide 2 -->
+                @foreach ($banners as $banner)
+                    
+                
                 <div class="swiper-slide">
-                    <div class="baner">
-                        <div class="baner-heading text-center">
-                            <h1>Discover The World Like Never Before</h1>
-                            <p>From hidden gems to iconic landmarks — we plan every detail so you can explore worry-free
-                                and make memories that last a lifetime</p>
-                            <a href="Detaile.html"> <button>Explore More <i
-                                        class="fa fa-arrow-right"></i></button></a>
+                    <div class="baner1 position-relative">
+                        <img src="{{url('uploads/'.$banner->image)}}" alt="Banner" class="slide-bg" />
+                        <div class="baner-heading text-center position-relative">
+                            <h1>{{$banner->name}}</h1>
+                            <p>
+                                {{$banner->short_content}}
+                            </p>
+                            <a href="{{$banner->link}}" >
+                                <button class="explore-btn">Explore More <i class="fa fa-arrow-right"></i></button>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="baner1">
-                        <div class="baner-heading text-center">
-                            <h1>Ride to the Roof of the World – <br> Ladakh Awaits!</h1>
-                            <p>A journey through breathtaking landscapes, ancient monasteries, and timeless culture —
-                                discover the true spirit of Ladakh</p>
-                            <a href="Detaile.html"> <button class="explore-btn">Explore More <i
-                                        class="fa fa-arrow-right"></i></button></a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
 
             <!-- Pagination -->
@@ -65,42 +67,42 @@
             <div class="content-desktop container btn-btn-primary">
                 <div class="row gx-5">
                     <div class="col-12 col-sm-6 col-md-4">
-                        <div class="image"><img src="images/manali.jpg" class="img-fluid">
+                        <div class="image"><img src="{{url('project/images/manali.webp')}}" class="img-fluid">
                             <a href="detaile.html">
                                 <p>Ladakh</p>
                             </a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="images/Hawa mahal.jpg" class="img-fluid">
+                        <div class="image"><img src="{{url('project/images/Hawa mahal.webp')}}" class="img-fluid">
                             <a href="detaile.html">
                                 <p>Jaipur</p>
                             </a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="images/Lotus temple.jpg" class="img-fluid">
+                        <div class="image"><img src="{{url('project/images/Lotus temple.webp')}}" class="img-fluid">
                             <a href="detaile.html">
                                 <p>Lotus Temple</p>
                             </a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="images/Ladakh.jpg" class="img-fluid">
+                        <div class="image"><img src="{{url('project/images/Ladakh.webp')}}" class="img-fluid">
                             <a href="detaile.html">
                                 <p>Ladakh</p>
                             </a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="images/Khagrachair.jpg" class="img-fluid">
+                        <div class="image"><img src="{{url('project/images/Khagrachair.webp')}}" class="img-fluid">
                             <a href="detaile.html">
                                 <p>Ladakh</p>
                             </a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="images/Taj mahal.jpg" class="img-fluid">
+                        <div class="image"><img src="{{url('project/images/Taj mahal.webp')}}" class="img-fluid">
                             <a href="detaile.html">
                                 <p>Taj Mahal</p>
                             </a>
@@ -115,42 +117,42 @@
                     <div class="swiper-wrapper">
                         <!-- loop through same items -->
                         <div class="swiper-slide">
-                            <div class="image"><img src="images/manali.jpg" class="img-fluid">
+                            <div class="image"><img src="images/manali.webp" class="img-fluid">
                                 <a href="detaile.html">
                                     <p>Ladakh</p>
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="image"><img src="images/Hawa mahal.jpg" class="img-fluid">
+                            <div class="image"><img src="images/Hawa mahal.webp" class="img-fluid">
                                 <a href="detaile.html">
                                     <p>Jaipur</p>
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="image"><img src="images/Lotus temple.jpg" class="img-fluid">
+                            <div class="image"><img src="images/Lotus temple.webp" class="img-fluid">
                                 <a href="detaile.html">
                                     <p>Lotus Temple</p>
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="image"><img src="images/Ladakh.jpg" class="img-fluid">
+                            <div class="image"><img src="images/Ladakh.webp" class="img-fluid">
                                 <a href="detaile.html">
                                     <p>Ladakh</p>
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="image"><img src="images/Khagrachair.jpg" class="img-fluid">
+                            <div class="image"><img src="images/Khagrachair.webp" class="img-fluid">
                                 <a href="detaile.html">
                                     <p>Ladakh</p>
                                 </a>
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <div class="image"><img src="images/Taj mahal.jpg" class="img-fluid">
+                            <div class="image"><img src="images/Taj mahal.webp" class="img-fluid">
                                 <a href="detaile.html">
                                     <p>Taj Mahal</p>
                                 </a>
@@ -201,7 +203,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="images/sliders-image/Goa.jpg" alt="" class="img-fluid">
+                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
                                             <h3>Goa</h3>
                                             <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
@@ -218,15 +220,15 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                             <span class="review ms-2 text-muted">1.5k Reviews</span>
                                         </div>
 
                                         <div>
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                         </div>
 
@@ -240,7 +242,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="images/sliders-image/Varanasi.jpg" alt="" class="img-fluid">
+                                        <img src="images/sliders-image/Varanasi.webp" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
                                             <h3>Varanasi</h3>
                                             <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
@@ -257,15 +259,15 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                             <span class="review ms-2 text-muted">1.5k Reviews</span>
                                         </div>
 
                                         <div>
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                         </div>
                                         <div>
@@ -278,7 +280,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="images/sliders-image/Goa.jpg" alt="" class="img-fluid">
+                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
                                             <h3>Goa</h3>
                                             <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
@@ -295,15 +297,15 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                             <span class="review ms-2 text-muted">1.5k Reviews</span>
                                         </div>
 
                                         <div>
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                         </div>
                                         <div>
@@ -316,7 +318,7 @@
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="images/sliders-image/Goa.jpg" alt="" class="img-fluid">
+                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
                                             <h3>Goa</h3>
                                             <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
@@ -333,15 +335,15 @@
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                             <span class="review ms-2 text-muted">1.5k Reviews</span>
                                         </div>
 
                                         <div>
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.png" alt="" class="img-fluid"
+                                            <li><img src="images/right.webp" alt="" class="img-fluid"
                                                     style="height: 20px;width: 20px;"> 11Night/12 Days</li>
                                         </div>
                                         <div>
@@ -370,15 +372,15 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center me-4">
                     <h1 class="me-2">incredible-india</h1>
-                    <img src="images/indiaLogo.png" alt="">
+                    <img src="images/indiaLogo.webp" alt="">
                 </div>
                 <div class="d-flex align-items-center me-4">
                     <h1 class="me-2">incredible-india</h1>
-                    <img src="images/indiaLogo.png" alt="">
+                    <img src="images/indiaLogo.webp" alt="">
                 </div>
                 <div class="d-flex align-items-center me-4">
                     <h1 class="me-2">incredible-india</h1>
-                    <img src="images/indiaLogo.png" alt="">
+                    <img src="images/indiaLogo.webp" alt="">
                 </div>
             </div>
         </marquee>
@@ -402,7 +404,7 @@
                     <!-- Right Column (Image) -->
                     <div class="col-md-5 mb-md-0">
                         <div class="image-container position-relative">
-                            <img src="images/Indiya-Get.png" alt="" class="img-fluid content-img">
+                            <img src="images/Indiya-Get.webp" alt="" class="img-fluid content-img">
                         </div>
                     </div>
 
@@ -420,76 +422,73 @@
 
 
 
-        <section class="baner-2">
-            <div class="container">
-                <div class="baner-2-content text-center">
-                    <h1>Why Choose us?</h1>
-                </div>
+     <section class="baner-2 position-relative">
+    <!-- Background image as <img>, placed behind content -->
+    <img src="images/peric.webp" alt="Background" class="bg-img position-absolute w-100 h-100 top-0 start-0" style="object-fit: cover; z-index: -1;" />
 
-                <!-- Grid for Desktop/Tablet -->
-                <div class="content-desktop row   ">
-                    <div class="col-12 col-md-4 mt-5">
-                        <div class="item-box baner-2-text">
-                            <h2>Everything You Need,</h2>
-                            <p>From booking flights and trains to finding the perfect hotel, we bring all your travel
-                                needs together on one easy-to-use platform.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4  mt-5">
-                        <div class="item-box baner-2-text">
-                            <h2>Everything You Need,</h2>
-                            <p>From booking flights and trains to finding the perfect hotel, we bring all your travel
-                                needs together on one easy-to-use platform.</p>
-                        </div>
+    <div class="container">
+        <div class="baner-2-content text-center">
+            <h1>Why Choose us?</h1>
+        </div>
 
-                    </div>
-                    <div class="col-12 col-md-4  mt-5">
-                        <div class="item-box baner-2-text">
-                            <h2>Everything You Need,</h2>
-                            <p>From booking flights and trains to finding the perfect hotel, we bring all your travel
-                                needs together on one easy-to-use platform.</p>
-                        </div>
-                    </div>
-                    <!-- दो और समान कॉलम -->
-                </div>
-
-                <!-- Slider for Mobile -->
-                <div class="content-mobile">
-                    <div class="swiper myMobileSwiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide p-2">
-                                <div class="item-box baner-2-text">
-                                    <h2>Everything You Need,</h2>
-                                    <p>From booking flights and trains to finding the perfect hotel, we bring all your
-                                        travel
-                                        needs together on one easy-to-use platform.</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide p-2">
-                                <div class="item-box baner-2-text">
-                                    <h2>Everything You Need,</h2>
-                                    <p>From booking flights and trains to finding the perfect hotel, we bring all your
-                                        travel
-                                        needs together on one easy-to-use platform.</p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide p-2">
-                                <div class="item-box baner-2-text">
-                                    <h2>Everything You Need,</h2>
-                                    <p>From booking flights and trains to finding the perfect hotel, we bring all your
-                                        travel
-                                        needs together on one easy-to-use platform.</p>
-                                </div>
-                            </div>
-                            <!-- repeat other 2 slides -->
-                        </div>
-
-                        <div class="swiper-pagination"></div>
-
-                    </div>
+        <!-- Grid for Desktop/Tablet -->
+        <div class="content-desktop row">
+            <div class="col-12 col-md-4 mt-5">
+                <div class="item-box baner-2-text">
+                    <h2>Everything You Need,</h2>
+                    <p>From booking flights and trains to finding the perfect hotel, we bring all your travel
+                        needs together on one easy-to-use platform.</p>
                 </div>
             </div>
-        </section>
+            <div class="col-12 col-md-4 mt-5">
+                <div class="item-box baner-2-text">
+                    <h2>Everything You Need,</h2>
+                    <p>From booking flights and trains to finding the perfect hotel, we bring all your travel
+                        needs together on one easy-to-use platform.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mt-5">
+                <div class="item-box baner-2-text">
+                    <h2>Everything You Need,</h2>
+                    <p>From booking flights and trains to finding the perfect hotel, we bring all your travel
+                        needs together on one easy-to-use platform.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider for Mobile -->
+        <div class="content-mobile">
+            <div class="swiper myMobileSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide p-2">
+                        <div class="item-box baner-2-text">
+                            <h2>Everything You Need,</h2>
+                            <p>From booking flights and trains to finding the perfect hotel, we bring all your
+                                travel needs together on one easy-to-use platform.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-2">
+                        <div class="item-box baner-2-text">
+                            <h2>Everything You Need,</h2>
+                            <p>From booking flights and trains to finding the perfect hotel, we bring all your
+                                travel needs together on one easy-to-use platform.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide p-2">
+                        <div class="item-box baner-2-text">
+                            <h2>Everything You Need,</h2>
+                            <p>From booking flights and trains to finding the perfect hotel, we bring all your
+                                travel needs together on one easy-to-use platform.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 
@@ -521,7 +520,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client.png" alt="" class="img-fluid"
+                                                    <img src="images/client-image/client.webp" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -550,7 +549,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client.png" alt="" class="img-fluid"
+                                                    <img src="images/client-image/client-2.webp" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -579,7 +578,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client.png" alt="" class="img-fluid"
+                                                    <img src="images/client-image/client.webp" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -608,7 +607,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client.png" alt="" class="img-fluid"
+                                                    <img src="images/client-image/client-2.webp" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -637,7 +636,7 @@
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
                                                 <div>
-                                                    <img src="images/client-image/client.png" alt="" class="img-fluid"
+                                                    <img src="images/client-image/client.webp" alt="" class="img-fluid"
                                                         width="60">
                                                 </div>
                                                 <div class="client-text">
@@ -687,6 +686,9 @@
         </section>
 
     </main>
+
+
+
 
 
 @endsection

@@ -111,35 +111,65 @@ nav div ul {
 
 .baner,
 .baner1 {
-  background-size: cover;
-  background-position: center;
-  height: 90vh;
-  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  position: relative;
-  transition: background-image 0.8s ease-in-out;
+}
+
+/* Background Image Styling */
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 
-.baner {
-  height: 90vh;
-  background-image: url('images/Baner.jpg');
-  background-size: cover;
-  background-position: center;
+/* Centered Content Styling */
+.baner-heading {
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+  padding: 0 15px;
+  width: 100%;
 }
 
-.baner1 {
-  height: 90vh;
-  background-image: url("images/Detailes-images/baner-Detailes.jpg");
-  background-size: cover;
-  background-position: center;
+.baner-heading h1 {
+  font-size: 60px;
+  font-family: "Italiana", serif;
+  color: white;
+}
+
+.baner-heading p {
+  font-family: "Inter", sans-serif;
+  color: white;
+  font-size: 20px;
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+
+.explore-btn {
+  font-size: 18px;
+  margin-top: 30px;
+  background: transparent;
+  border: 2px solid white;
+  padding: 10px 25px;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 
+
+/* Arrow Buttons (optional slider nav) */
 .arrow-button {
   position: absolute;
   bottom: 40px;
@@ -160,56 +190,6 @@ nav div ul {
   cursor: pointer;
 }
 
-.baner h1,
-.baner1 h1 {
-  font-size: 60px;
-  font-family: Italiana;
-  color: white;
-}
-
-.baner p,
-.baner1 p {
-  font-family: Inter;
-  color: white;
-  font-size: 20px;
-  width: 60%;
-  margin: auto;
-}
-
-.baner button.explore-btn {
-  font-size: 18px;
-  margin-top: 30px;
-  background: transparent;
-  border: 2px solid white;
-  padding: 10px 25px;
-  color: white;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-.baner-heding {
-  align-items: center;
-  justify-content: center;
-}
-
-.baner p,
-.baner p {
-  margin: auto;
-  width: 60%;
-  color: white;
-}
-
-.baner button,
-.baner1 button {
-  margin-top: 40px;
-  font-size: 20px;
-  background: transparent;
-  border: 2px solid white;
-  padding: 5px 20px;
-  color: white;
-  border-radius: 50px;
-
-}
 
 .apply-btn {
   background-color: #E45D3F;
@@ -411,58 +391,52 @@ input[type="email"] {
     box-shadow: none !important;
     border: none !important;
   }
-
-  .baner {
-    height: 90vh !important;
-    background-image: url('images/Baner.jpg');
-    background-size: cover;
-    background-position: center;
+  .baner-heading h1 {
+     padding: 0px 10px;
+    width: auto;
+    font-size: 1.3rem;
+    text-align: center;
   }
 
-  .baner1 {
-    height: 90vh !important;
-    background-image: url("images/Detailes-images/baner-Detailes.jpg");
-    background-size: cover;
-    background-position: center;
+  .baner-heading p {
+    /* width: auto; */
+    font-family: intar;
+      padding: 0px 10px;
+    font-size: 15px !important;
+    width: 100%;
+    text-align: center;
   }
 
-
-
-
-
-
-  .baner h1,
-  .baner1 h1 {
-    font-size: 1.2rem;
-    padding: 0 10px;
+  .explore-btn {
+    font-size: 16px;
+    padding: 4px 15px;
   }
 
-  .baner p,
-  .baner1 p {
-    font-size: 1rem;
-    width: 90%;
-  }
-
-  .baner button,
-  .baner1 button {
-    font-size: 14px;
-    padding: 6px 15px;
-    margin-top: 20px;
-  }
 
   .arrow-button {
+    position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
     gap: 10px;
+    z-index: 10;
   }
 
   .arrow-button button {
-    margin-bottom: -10px;
+    background: transparent;
+    color: #fff;
+    border: 1px solid white;
     width: 40px;
     height: 40px;
-    font-size: 16px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+
+
 
   .card-box{
   border: 0.2px solid #9B9898;
@@ -573,19 +547,16 @@ input[type="email"] {
     font-size: 18px;
   }
 
-  .baner h1,
-  .baner1 h1 {
+ .baner-heading h1 {
     font-size: 36px;
   }
 
-  .baner p,
-  .baner1 p {
+.baner-heading p {
     font-size: 18px;
     width: 80%;
   }
 
-  .baner button,
-  .baner1 button {
+  .explore-btn {
     font-size: 16px;
     padding: 8px 20px;
   }
@@ -649,18 +620,19 @@ input[type="email"] {
 
   .baner {
     height: 150vh;
-    background-image: url('images/Baner.jpg');
     background-size: cover;
     background-position: center;
   }
 
   .baner1 {
     height: 150vh;
-    background-image: url("images/Detailes-images/baner-Detailes.jpg");
     background-size: cover;
     background-position: center;
   }
 
+  .baner-heading {
+    margin-top: 45px;
+  }
 
   /* ✅ Updated button & input styles for footer */
   .footer-content .position-relative {

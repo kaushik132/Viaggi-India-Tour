@@ -7,6 +7,7 @@
 body {
   overflow-x: hidden;
 }
+
 header {
   position: absolute;
   top: 0;
@@ -26,7 +27,7 @@ ol {
 }
 
 p {
-  font-family: Montserrat ;
+  font-family: Montserrat;
 }
 
 .navbar-toggler:focus,
@@ -40,11 +41,12 @@ p {
 .offcanvas-custom {
   position: fixed;
   top: 0;
-  left: -100%; /* Move completely off screen */
+  left: -100%;
+  /* Move completely off screen */
   width: 100%;
   height: 100vh;
   background-color: #E45D3F;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
   z-index: 1050;
   transition: left 0.3s ease;
@@ -127,22 +129,51 @@ nav div ul {
   transition: background-image 0.8s ease-in-out;
 }
 
-.baner {
-  height: 90vh;
-  background-image: url('images/Baner.jpg');
-  background-size: cover;
-  background-position: center;
+.baner button.explore-btn {
+  font-size: 18px;
+  margin-top: 30px;
+  background: transparent;
+  border: 2px solid white;
+  padding: 10px 25px;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+
+.baner img,
+.baner1 img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 
-.baner1 {
-  height: 90vh;
-  background-image: url("images/Detailes-images/baner-Detailes.jpg");
-  background-size: cover;
-  background-position: center;
-    border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+.baner-heding {
+  align-items: center;
+  justify-content: center;
+}
+
+
+.baner h1,
+.baner1 h1 {
+  font-size: 60px;
+  font-family: Italiana;
+  color: white;
+}
+
+.baner p,
+.baner1 p {
+  font-family: Inter;
+  color: white;
+  font-size: 20px;
+  width: 60%;
+  margin: auto;
 }
 
 
@@ -166,44 +197,7 @@ nav div ul {
   cursor: pointer;
 }
 
-.baner h1,
-.baner1 h1 {
-  font-size: 60px;
-  font-family: Italiana;
-  color: white;
-}
 
-.baner p,
-.baner1 p {
-  font-family: Inter;
-  color: white;
-  font-size: 20px;
-  width: 60%;
-  margin: auto;
-}
-
-.baner button.explore-btn {
-  font-size: 18px;
-  margin-top: 30px;
-  background: transparent;
-  border: 2px solid white;
-  padding: 10px 25px;
-  color: white;
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-.baner-heding {
-  align-items: center;
-  justify-content: center;
-}
-
-.baner p,
-.baner p {
-  margin: auto;
-  width: 60%;
-  color: white;
-}
 
 .baner button,
 .baner1 button {
@@ -248,6 +242,9 @@ nav div ul {
   text-align: center;
   font-weight: 400;
 }
+
+
+
 
 
 
@@ -324,12 +321,14 @@ marquee img {
   width: 70px;
 }
 
- .image-container {
+.image-container {
   position: relative;
-  overflow: hidden; /* prevents content from overflowing */
+  overflow: hidden;
+  /* prevents content from overflowing */
   height: 600px;
 }
-.content{
+
+.content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -337,16 +336,20 @@ marquee img {
 
 .content-img {
   margin-top: 30px;
-  padding: 20px; /* space between image and border */
+  padding: 20px;
+  /* space between image and border */
   border-radius: 100%;
   position: absolute;
   left: 86%;
   top: -28px;
   transform: translateX(-60%);
-  border: 20px solid transparent; /* required for showing gradient */
-  background: 
-    linear-gradient(white, white) padding-box, /* Inner white background */
-    linear-gradient(to bottom, #CAD8F6, #FFFEFE) border-box; /* Border gradient */
+  border: 20px solid transparent;
+  /* required for showing gradient */
+  background:
+    linear-gradient(white, white) padding-box,
+    /* Inner white background */
+    linear-gradient(to bottom, #CAD8F6, #FFFEFE) border-box;
+  /* Border gradient */
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
@@ -421,7 +424,7 @@ marquee img {
 }
 
 
-.discover-content{
+.discover-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -431,7 +434,7 @@ marquee img {
 
 
 .baner-2 {
-  background-image: url('images/peric.jpg');
+ 
   background-size: cover;
   background-position: center;
   color: white;
@@ -568,6 +571,7 @@ input[type="email"] {
 .footer-content-2 {
   padding: 40px;
 }
+
 .footer-content-3 {
   padding: 40px;
 }
@@ -604,7 +608,7 @@ input[type="email"] {
   }
 
   body {
-    margin: 0 ;
+    margin: 0;
     padding: 0;
     overflow-x: hidden;
   }
@@ -626,25 +630,26 @@ input[type="email"] {
   }
 
   .login-btn {
-  background-color: #E3553AC9;
-  color: white;
-  height: 40px;
-  width: 40px;
-  border: none;
-  font-size: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
+    background-color: #E3553AC9;
+    color: white;
+    height: 40px;
+    width: 40px;
+    border: none;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
 
 
-/* Active dot color (you can keep same or make it different if needed) */
-.swiper-pagination-bullet-active {
-  background-color: #E45D3F !important;
-}
+  /* Active dot color (you can keep same or make it different if needed) */
+  .swiper-pagination-bullet-active {
+    background-color: #E45D3F !important;
+  }
+
   .navbar-nav {
     background-color: #E45D3F;
     width: 100%;
@@ -657,29 +662,19 @@ input[type="email"] {
     text-align: center;
   }
 
-.navbar-toggler:focus,
-.navbar-toggler:active,.navbar-toggler {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-.navbar-toggler{
-  margin-right: 20px;
-}
-  
-.baner {
-  height: 90vh;
-  background-image: url('images/Baner.jpg');
-  background-size: cover;
-  background-position: center;
-}
+  .navbar-toggler:focus,
+  .navbar-toggler:active,
+  .navbar-toggler {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
 
-.baner1 {
-  height: 90vh;
-  background-image: url("images/Detailes-images/baner-Detailes.jpg");
-  background-size: cover;
-  background-position: center;
-}
+  .navbar-toggler {
+    margin-right: 20px;
+  }
+
+
   .baner h1,
   .baner1 h1 {
     padding: 0px 10px;
@@ -782,26 +777,28 @@ input[type="email"] {
     text-align: center;
   }
 
-.myMobileSwiperOnly{
-  height: 350px;
-}
+  .myMobileSwiperOnly {
+    height: 350px;
+  }
 
   .baner-2 {
-  background-image: url('images/peric.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 10px 0;
-}
+    background-image: url('images/peric.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 10px 0;
+  }
+
   .container-text h1,
   .content-data h1 {
     font-size: 2rem;
-    text-align: start;  
+    text-align: start;
   }
-  .baner-2-content h1{
+
+  .baner-2-content h1 {
     font-size: 2rem;
     margin-top: -50px;
-    text-align: center;  
+    text-align: center;
   }
 
   .container-text p,
@@ -810,47 +807,49 @@ input[type="email"] {
     text-align: start;
   }
 
-  
-.discover-content{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column-reverse;
 
-}
+  .discover-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
 
-.content-data button {
-  font-size: 20px;
-  background-color: #5E7CBD;
-  color: white;
-  padding: 6px 15px;
-  border: none;
-  border-radius: 50px;
-  margin-top: 50px;
-}
+  }
+
+  .content-data button {
+    font-size: 20px;
+    background-color: #5E7CBD;
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 50px;
+    margin-top: 50px;
+  }
 
 
-.content{
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-}
+  .content {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
 
- .image-container {
- /* prevents content from overflowing */
-  height:340px;
-}
-.content-data{
-  padding-bottom: 25px ;
-}
+  .image-container {
+    /* prevents content from overflowing */
+    height: 340px;
+  }
+
+  .content-data {
+    padding-bottom: 25px;
+  }
 
   .content-img {
     position: static !important;
     left: auto;
     top: auto;
     transform: none;
-    margin-bottom: 20px; /* Optional: spacing below the image */
+    margin-bottom: 20px;
+    /* Optional: spacing below the image */
   }
 
   .baner-2-text {
@@ -863,19 +862,22 @@ input[type="email"] {
     padding: 15px;
   }
 
-    .client .container-fluid {
-        padding: 0 !important; /* Remove all padding */
-    }
+  .client .container-fluid {
+    padding: 0 !important;
+    /* Remove all padding */
+  }
 
-    .clients {
-        margin: 15px !important; /* Add margin from all sides */
-    }
+  .clients {
+    margin: 15px !important;
+    /* Add margin from all sides */
+  }
 
-    .swiper-slide {
-        padding: 0 !important; /* Optional: in case padding is applied on slides */
-    }
+  .swiper-slide {
+    padding: 0 !important;
+    /* Optional: in case padding is applied on slides */
+  }
 
- 
+
 
   .experiences-data h1 {
     font-family: Italiana;
@@ -917,11 +919,12 @@ input[type="email"] {
   }
 
   .footer-content-2 {
-  padding: 10px;
-}
-.footer-content-3 {
-  padding: 0px;
-}
+    padding: 10px;
+  }
+
+  .footer-content-3 {
+    padding: 0px;
+  }
 
   .icon {
     display: flex;
@@ -936,8 +939,13 @@ input[type="email"] {
     margin: 0 auto;
   }
 
-  .content-desktop { display: none !important; }
-  .content-mobile { display: block !important; }
+  .content-desktop {
+    display: none !important;
+  }
+
+  .content-mobile {
+    display: block !important;
+  }
 
   .myMobileSwiper {
     position: relative;
@@ -1091,8 +1099,14 @@ input[type="email"] {
   .footer-content-3 {
     padding: 30px 0px;
   }
-  .content-mobile { display: none !important; }
-  .content-desktop { display: block !important; }
+
+  .content-mobile {
+    display: none !important;
+  }
+
+  .content-desktop {
+    display: block !important;
+  }
 
 
 }
@@ -1107,11 +1121,12 @@ input[type="email"] {
     padding: 20px 0px;
   }
 
-  .baner,.baner1 {
+  .baner,
+  .baner1 {
     height: 110vh;
   }
 
-  .baner-heading  {
+  .baner-heading {
     margin-top: 100px;
   }
 

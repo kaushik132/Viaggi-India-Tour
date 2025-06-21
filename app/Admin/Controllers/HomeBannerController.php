@@ -28,8 +28,7 @@ class HomeBannerController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
-        $grid->column('image', __('Image'));
-        $grid->column('short_content', __('Short content'));
+        $grid->column('image', __('Image'))->image('/uploads/',100, 100);
  $grid->column('created_at', __('Created at'))->display(function ($created_at) {
     return \Carbon\Carbon::parse($created_at)->format('d F Y'); // e.g., 20 June 2025
 });
@@ -68,8 +67,9 @@ class HomeBannerController extends AdminController
         $form = new Form(new HomeBanner());
 
         $form->text('name', __('Name'));
-        $form->image('image', __('Image'));
+        $form->image('image', __('Image'))->removable();
         $form->textarea('short_content', __('Short content'));
+        $form->url('link', __('Page Link'));
 
         return $form;
     }
