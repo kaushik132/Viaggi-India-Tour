@@ -1,0 +1,108 @@
+<?php
+
+namespace App\Admin\Controllers;
+use App\Tour;
+use App\TourCategory;
+use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Form;
+use Encore\Admin\Grid;
+use Encore\Admin\Show;
+
+use App\Admin\Forms\Steps;
+
+class TourController extends AdminController{
+
+     protected $title = 'Tour';
+     protected function grid(){
+     $grid = new Grid(new Tour());
+
+     $grid->column('title', __('Category Name'));
+     $grid->column('slug', __('Slug'));
+     $states = [
+            'on' => ['value' => 1, 'text' => 'Active', 'color' => 'primary'],
+            'off' => ['value' => 0, 'text' => 'InActive', 'color' => 'default'],
+        ];
+       $grid->column('is_featured', __('Is Featured'))->switch($states);
+       return $grid;
+    }
+
+    protected function detail($id){
+         $show = new Show(TourCategory::findOrFail($id));
+         $show->field('name', __('Name'));
+         return $show;
+      }
+      
+
+     protected function form(){
+
+          $form = new Form(new Tour());
+          $form->tools(function (Form\Tools $tools) {
+                $tools->disableList();
+                $tools->disableDelete();
+                $tools->disableView();
+          });
+
+          $form->footer(function ($footer) {
+                $footer->disableReset();
+                $footer->disableViewCheck();
+                $footer->disableEditingCheck();
+                $footer->disableCreatingCheck();
+
+             });
+          $form->tab('TourInfo', function ($form) { 
+             $form->select('category_id',__('Tour Category'))->options(TourCategory::pluck('name', 'id'))->default(null);
+             $form->text('title', __('Title'));
+             $form->textarea('overview',__('Tour Overview'));
+
+             $states = [
+              'on' => ['value' => 1, 'text' => 'Active', 'color' => 'primary'],
+              'off' => ['value' => 0, 'text' => 'InActive', 'color' => 'default'],
+              ];
+             $form->switch('is_featured', __('Is Featured'))->states($states);
+
+             $form->text('seo_title', __('Seo Title'));
+             $form->text('trip_duration', __('Trip-Duration'));
+             $form->text('seo_description', __('Seo Description'));
+          });
+          $form->tab('TourDetail', function ($form) {
+             $form->keyValue('quick_view',__('Quick View'));
+             $form->list('attractions',__('Tour Attractions'));
+             $form->list('plan',__('Tour Plan'));
+          });
+          $form->tab('TourItinerary', function ($form) {
+              $form->hasMany('touretailsinsert','TourItinerary', function (Form\NestedForm $form) {
+		          $form->text('order_num', __('Order Num'));
+		          $form->text('name', __('Name'));
+			        $form->textarea('description', __('Description'));
+		     });
+           });
+
+        $form->tab('MeidaFile', function ($form) {
+
+        $form->image('thum_img', __('Thum Img'))->move('tour_thum_img')->name(function ($file) {
+          $file_name = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-',trim($file->getClientOriginalName()))));
+          return $file_name.'.'.$file->guessExtension();
+        });
+
+        $form->multipleImage('pictures', __('Pictures Image'))->rules('mimes:png,jpeg,jpg')->removable()->downloadable()->move('tour_banner')->name(function ($file) {
+             $file_name = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-',trim($file->getClientOriginalName()))));
+             return $file_name.'-'.strtotime(date('d-m-y h:i:s')).'-.'.$file->guessExtension();
+          });
+ 
+        // $form->table('images', function ($table) {
+        //      $table->image('images', __('Banner'))->move('tour_banner')->name(function ($file) {
+        //          $file_name = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-',trim($file->getClientOriginalName()))));
+        //          return $file_name.'.'.$file->guessExtension();
+        //        });
+        //  });
+       });
+
+       $form->hidden('slug');
+       $form->saving(function (Form $form) {
+         $form->slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-',trim($form->title)));
+       });
+
+        return $form;
+     }
+  }
+

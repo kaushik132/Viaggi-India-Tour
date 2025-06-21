@@ -15,6 +15,8 @@ Route::group([
     $router->resource('home-banners', HomeBannerController::class);
     $router->resource('contacts', ContactController::class);
     $router->resource('regions', RegionController::class);
+    $router->resource('destinations', DestinationDetailsController::class);
+    $router->resource('tourdetails', TourListController::class);
 
 
 
