@@ -169,6 +169,13 @@ nav div ul {
     display: block;
 }
 
+.carousel-item img{
+    height: 70vh;
+    width: 100%;
+    object-fit: cover;
+    
+}
+
 .overlay-text {
     position: absolute;
     top: 50%;
@@ -251,8 +258,17 @@ nav div ul {
     border-radius: 8px;
     font-size: 14px;
 }
+.booking-form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
 
-.booking-form button {
+.booking-form #bookingformbtn{
+    position: absolute;
+    top: 640px;
+    left: 4px;
+   
     background-color: #E45D3F;
     color: white;
     border: none;
