@@ -72,7 +72,7 @@ class DestinationDetailsController extends AdminController
     {
         $form = new Form(new Destinations());
    $form->tab('Info', function ($form) {
-         $form->select('region_id',__('Region id'))->options(Region::pluck('name', 'id'))->default(null)->rules('required');
+         $form->select('region_id',__('Destination Category'))->options(Region::pluck('name', 'id'))->default(null)->rules('required');
         $form->text('title', __('Title'));
           $form->hidden('slug');
 

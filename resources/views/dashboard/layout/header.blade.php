@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{url('project/css/style.css')}}">
     <link rel="stylesheet" href="{{url('project/css/Destination.css')}}">
     <link rel="stylesheet" href="{{url('project/css/Detailes.css')}}">
+    <link rel="stylesheet" href="{{url('project/css/Package.css')}}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -57,7 +58,7 @@
                     <ul class="navbar-nav gap-4">
                         <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('Destination')}}">Destination</a></li>
-                        <li class="nav-item"><a class="nav-link" href="Packages.html">Packages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('Packages')}}">Packages</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{url('contact-us')}}">Contact</a></li>
                     </ul>
                 </div>
@@ -79,7 +80,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="{{url('/')}}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('Destination')}}">Destination</a></li>
-                <li class="nav-item"><a class="nav-link" href="Packages.html">Packages</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('Packages')}}">Packages</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{url('contact-us')}}">Contact</a></li>
             </ul>
         </div>

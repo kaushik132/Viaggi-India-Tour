@@ -84,4 +84,18 @@ class HomeController extends Controller
         $destinationsdetails = Tourdetails::orderBy('order_num', 'asc')->where('tour_id', $destinationsData->id)->get();
         return view('destinationdetail', compact('destinationsData', 'destinationsdetails'));
     }
+
+
+    function package()
+    {
+               $banners = HomeBanner::latest()->get();
+        return view('package',compact('banners'));
+    }
+
+
+    function packageDetails()
+    {
+        return view('packageDetails');
+    }
+
 }

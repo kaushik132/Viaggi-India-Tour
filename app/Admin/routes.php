@@ -17,6 +17,10 @@ Route::group([
     $router->resource('regions', RegionController::class);
     $router->resource('destinations', DestinationDetailsController::class);
     $router->resource('tourdetails', TourListController::class);
+    $router->resource('budgets', BudgetController::class);
+    $router->resource('durations', DurationController::class);
+    $router->resource('traveler-types', TravelerTypeController::class);
+    $router->resource('experience-types', ExperienceTypeController::class);
 
 
 
