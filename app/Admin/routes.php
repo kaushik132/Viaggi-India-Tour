@@ -21,6 +21,8 @@ Route::group([
     $router->resource('durations', DurationController::class);
     $router->resource('traveler-types', TravelerTypeController::class);
     $router->resource('experience-types', ExperienceTypeController::class);
+    $router->resource('packages', PackageController::class);
+    
 
 
 
