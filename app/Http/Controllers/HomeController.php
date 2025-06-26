@@ -8,6 +8,7 @@ use App\Models\HomeBanner;
 use App\Models\Destinations;
 use App\Models\Tourdetails;
 use App\Models\Region;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -20,7 +21,11 @@ class HomeController extends Controller
         //   $seo_data['seo_description'] = $homepage->seo_des_home;
         //   $seo_data['keywords'] = $homepage->seo_key_home;
         $banners = HomeBanner::latest()->get();
-        return view('home', compact('banners'));
+        $testimonials = Testimonial::latest()->take(6)->get(); 
+        return view('home', compact('banners','testimonials'));
+
+         // ya all()
+   // return view('home', compact('testimonials'));
     }
 
 
@@ -32,8 +37,8 @@ class HomeController extends Controller
     function contactPost(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+           'name' => ['required', 'string', 'regex:/^[a-zA-Z\s]+$/', 'max:255'],
+            'email' =>  ['required', 'regex:/^[a-zA-Z0-9._%+-]+@gmail\.com$/'],
             'message' => 'required|string|max:1000',
         ], [
             'name.required' => 'Please enter your Full Name.',

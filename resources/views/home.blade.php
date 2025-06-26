@@ -515,7 +515,71 @@
                         <div class="swiper clientSwiper">
                             <div class="swiper-wrapper">
                                 <!-- Repeatable Swiper Slide -->
+                                @foreach($testimonials as $testimonial)
                                 <div class="swiper-slide ">
+                                    
+                                    <div class="clients  border rounded">
+                                        <div class="client-data">
+                                            <div class="client-img d-flex align-items-center gap-3">
+                                                <div>
+                                                    <img src="{{url('uploads/'.$testimonial->image)}}" alt="" class="img-fluid"
+                                                        width="60">
+                                                </div>
+                                                <div class="client-text">
+                                                    <h5>{{ $testimonial->name }}</h5>
+                                                    <p>{{ $testimonial->company }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="mt-3">
+                                                <button>{{ $testimonial->position }}</button>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div>
+                                            <h4>{{ $testimonial->title }}</h4>
+                                            <p>{{ $testimonial->description }}</p>
+                                        </div>
+                                        <hr>
+                                        <div>
+                                                <p>{{ $testimonial->review_date ? \Carbon\Carbon::parse($testimonial->review_date)->format('d M Y') : '' }}</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                 @endforeach
+
+
+
+                            {{--    <div class="swiper-slide">
+                                    <div class="clients  border rounded">
+                                        <div class="client-data">
+                                            <div class="client-img d-flex align-items-center gap-3">
+                                                <div>
+                                                    <img src="{{url('project/images/client-image/client-2.webp')}}" alt="" class="img-fluid"
+                                                        width="60">
+                                                </div>
+                                                <div class="client-text">
+                                                    <h5>John Walker</h5>
+                                                    <p>Company</p>
+                                                </div>
+                                            </div>
+                                            <div class="mt-3">
+                                                <button>CEO</button>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div>
+                                            <h4>Top-Notch Quality</h4>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+                                                tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        </div>
+                                        <hr>
+                                        <div>
+                                            <p>21.05.2024</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
                                     <div class="clients  border rounded">
                                         <div class="client-data">
                                             <div class="client-img d-flex align-items-center gap-3">
@@ -602,64 +666,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="clients  border rounded">
-                                        <div class="client-data">
-                                            <div class="client-img d-flex align-items-center gap-3">
-                                                <div>
-                                                    <img src="{{url('project/images/client-image/client-2.webp')}}" alt="" class="img-fluid"
-                                                        width="60">
-                                                </div>
-                                                <div class="client-text">
-                                                    <h5>John Walker</h5>
-                                                    <p>Company</p>
-                                                </div>
-                                            </div>
-                                            <div class="mt-3">
-                                                <button>CEO</button>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div>
-                                            <h4>Top-Notch Quality</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        </div>
-                                        <hr>
-                                        <div>
-                                            <p>21.05.2024</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="clients  border rounded">
-                                        <div class="client-data">
-                                            <div class="client-img d-flex align-items-center gap-3">
-                                                <div>
-                                                    <img src="{{url('project/images/client-image/client.webp')}}" alt="" class="img-fluid"
-                                                        width="60">
-                                                </div>
-                                                <div class="client-text">
-                                                    <h5>John Walker</h5>
-                                                    <p>Company</p>
-                                                </div>
-                                            </div>
-                                            <div class="mt-3">
-                                                <button>CEO</button>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div>
-                                            <h4>Top-Notch Quality</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        </div>
-                                        <hr>
-                                        <div>
-                                            <p>21.05.2024</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                --}}
                                 <!-- Repeat the .swiper-slide block as needed -->
                             </div>
 
