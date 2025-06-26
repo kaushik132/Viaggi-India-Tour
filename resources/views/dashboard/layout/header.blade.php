@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{url('project/css/Destination.css')}}">
     <link rel="stylesheet" href="{{url('project/css/Detailes.css')}}">
     <link rel="stylesheet" href="{{url('project/css/Package.css')}}">
+    <link rel="stylesheet" href="{{url('project/css/Contact.css')}}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
