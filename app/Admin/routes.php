@@ -22,7 +22,7 @@ Route::group([
     $router->resource('traveler-types', TravelerTypeController::class);
     $router->resource('experience-types', ExperienceTypeController::class);
     $router->resource('packages', PackageController::class);
-    
+    $router->resource('packagedetails', PackagedetailsController::class);
 
 
 

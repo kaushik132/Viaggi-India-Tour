@@ -6,5 +6,43 @@ use Illuminate\Database\Eloquent\Model;
 
 class Package extends Model
 {
+    protected $primaryKey = 'id';
     protected $table = 'package';
+
+
+       protected $casts = [
+        
+        'itinerarys' =>'array',
+        'gallery' =>'json',
+        'attractions' =>'json',
+        
+    ];
+
+  public function regionCategorys(){
+
+        return $this->belongsTo(Region::class,'region_id');
+    }
+  public function budgetCategorys(){
+
+        return $this->belongsTo(Budget::class,'budget_id');
+    }
+  public function durationCategorys(){
+
+        return $this->belongsTo(Duration::class,'duration_id');
+    }
+  public function travelerCategorys(){
+
+        return $this->belongsTo(TravelerType::class,'traveler_id');
+    }
+  public function experienceCategorys(){
+
+        return $this->belongsTo(ExperienceType::class,'traveler_id');
+    }
+
+
+        public function packagedetailsinsert()
+    {
+        return $this->hasMany(Packagedetails::class,'package_id','id');
+    }
+
 }
