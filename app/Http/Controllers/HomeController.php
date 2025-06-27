@@ -20,18 +20,16 @@ class HomeController extends Controller
 {
     function index()
     {
-        //      $canocial ='https://bbsmituni.com';
 
         //     $homepage = Title::first();
         //   $seo_data['seo_title'] = $homepage->seo_title_home;
         //   $seo_data['seo_description'] = $homepage->seo_des_home;
         //   $seo_data['keywords'] = $homepage->seo_key_home;
+        //      $canocial ='https://bbsmituni.com';
         $banners = HomeBanner::latest()->get();
-        $testimonials = Testimonial::latest()->take(6)->get(); 
-        return view('home', compact('banners','testimonials'));
-
-         // ya all()
-   // return view('home', compact('testimonials'));
+        $testimonials = Testimonial::latest()->take(6)->get();
+        return view('home', compact('banners', 'testimonials'));
+       
     }
 
 
@@ -43,7 +41,7 @@ class HomeController extends Controller
     function contactPost(Request $request)
     {
         $request->validate([
-           'name' => ['required', 'string', 'regex:/^[a-zA-Z\s]+$/', 'max:255'],
+            'name' => ['required', 'string', 'regex:/^[a-zA-Z\s]+$/', 'max:255'],
             'email' =>  ['required', 'regex:/^[a-zA-Z0-9._%+-]+@gmail\.com$/'],
             'message' => 'required|string|max:1000',
         ], [
@@ -88,13 +86,13 @@ class HomeController extends Controller
     }
     function destinationDetails($slug = null)
     {
-         $alltour = Package::inRandomOrder()->with('regionCategorys')->get();
+        $alltour = Package::inRandomOrder()->with('regionCategorys')->get();
         $destinationsData = Destinations::with('regionCategory')->where('slug', $slug)->first();
         //       $seo_data['seo_title'] =$destinationsData->seo_title;
         //   $seo_data['seo_description'] =$destinationsData->description;
         //   $seo_data['keywords'] =$destinationsData->keywords;
         $destinationsdetails = Tourdetails::orderBy('order_num', 'asc')->where('tour_id', $destinationsData->id)->get();
-        return view('destinationdetail', compact('destinationsData', 'destinationsdetails','alltour'));
+        return view('destinationdetail', compact('destinationsData', 'destinationsdetails', 'alltour'));
     }
 
 
@@ -124,62 +122,62 @@ class HomeController extends Controller
     //     return view('package',compact('packageList','banners','region','budget','duration','traveler','experience'));
     // }
 
-    
-public function package(Request $request, $slug = null)
-{
-    $query = Package::query()->latest()->with('regionCategorys');
 
-    // Slug based filtering (e.g., /package/rajasthan)
-    if ($slug !== null) {
-        $packageCategory = Region::where('slug', $slug)->first();
+    public function package(Request $request, $slug = null)
+    {
+        $query = Package::query()->latest()->with('regionCategorys');
 
-        if ($packageCategory) {
-            $query->where('region_id', $packageCategory->id);
+        // Slug based filtering (e.g., /package/rajasthan)
+        if ($slug !== null) {
+            $packageCategory = Region::where('slug', $slug)->first();
+
+            if ($packageCategory) {
+                $query->where('region_id', $packageCategory->id);
+            }
         }
+
+        // GET based filtering
+        if ($request->filled('region')) {
+            $query->where('region_id', $request->region);
+        }
+
+        if ($request->filled('budget')) {
+            $query->where('budget_id', $request->budget);
+        }
+
+        if ($request->filled('duration')) {
+            $query->where('duration_id', $request->duration);
+        }
+
+        if ($request->filled('traveler')) {
+            $query->where('traveler_id', $request->traveler);
+        }
+
+        if ($request->filled('experience')) {
+            $query->where('experience_id', $request->experience);
+        }
+
+        // Final result with pagination
+        $packageList = $query->paginate(6)->appends($request->query());
+
+        // Filter dropdown values
+        $banners    = HomeBanner::latest()->get();
+        $region     = Region::latest()->get();
+        $budget     = Budget::latest()->get();
+        $duration   = Duration::latest()->get();
+        $traveler   = TravelerType::latest()->get();
+        $experience = ExperienceType::latest()->get();
+
+        return view('package', compact(
+            'packageList',
+            'banners',
+            'region',
+            'budget',
+            'duration',
+            'traveler',
+            'experience'
+        ));
     }
-
-    // GET based filtering
-    if ($request->filled('region')) {
-        $query->where('region_id', $request->region);
-    }
-
-    if ($request->filled('budget')) {
-        $query->where('budget_id', $request->budget);
-    }
-
-    if ($request->filled('duration')) {
-        $query->where('duration_id', $request->duration);
-    }
-
-    if ($request->filled('traveler')) {
-        $query->where('traveler_id', $request->traveler);
-    }
-
-    if ($request->filled('experience')) {
-        $query->where('experience_id', $request->experience);
-    }
-
-    // Final result with pagination
-    $packageList = $query->paginate(6)->appends($request->query());  
-
-    // Filter dropdown values
-    $banners    = HomeBanner::latest()->get();
-    $region     = Region::latest()->get();
-    $budget     = Budget::latest()->get();
-    $duration   = Duration::latest()->get();
-    $traveler   = TravelerType::latest()->get();
-    $experience = ExperienceType::latest()->get();
-
-    return view('package', compact(
-        'packageList',
-        'banners',
-        'region',
-        'budget',
-        'duration',
-        'traveler',
-        'experience'
-    ));
-}
 
 
     function packageDetails($slug = null)
@@ -187,7 +185,6 @@ public function package(Request $request, $slug = null)
         $alltour = Package::inRandomOrder()->with('regionCategorys')->get();
         $packageData = Package::with('regionCategorys')->where('slug', $slug)->first();
         $destinationsdetails = Packagedetails::orderBy('order_num', 'asc')->where('package_id', $packageData->id)->get();
-        return view('packageDetails',compact('packageData','destinationsdetails','alltour'));
+        return view('packageDetails', compact('packageData', 'destinationsdetails', 'alltour'));
     }
-
 }
