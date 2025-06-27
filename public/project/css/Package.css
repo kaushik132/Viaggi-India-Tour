@@ -273,7 +273,7 @@ nav div ul {
   justify-content: space-between;
 }
 
-.details-btn {
+.btn-see-more {
   background-color: #E3553AC9;
   color: white;
   border: none;
@@ -312,7 +312,7 @@ footer {
   width: 300px;
 }
 
-button[type="submit"] {
+.footer-btn {
   border: none;
   color: white;
   background-color: #5E7CBD;
@@ -484,7 +484,7 @@ input[type="email"] {
     font-size: 14px;
   }
 
-  .footer-content button[type="submit"] {
+  .footer-content .footer-btn {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -585,7 +585,7 @@ input[type="email"] {
     border: none;
   }
 
-  .footer-content button[type="submit"] {
+  .footer-content .footer-btn {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -647,7 +647,7 @@ input[type="email"] {
     border: none;
   }
 
-  .footer-content button[type="submit"] {
+  .footer-content .footer-btn {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -691,7 +691,7 @@ input[type="email"] {
     border: none;
   }
 
-  .footer-content button[type="submit"] {
+  .footer-content .footer-btn {
     position: absolute;
     top: 50%;
     right: 10px;

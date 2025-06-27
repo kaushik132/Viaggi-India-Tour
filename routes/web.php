@@ -18,5 +18,5 @@ Route::get('/contact-us',[HomeController::class, 'contact'])->name('contact.subm
 Route::post('/contact-us',[HomeController::class, 'contactPost']);
 Route::get('/destinations/{slug?}', [HomeController::class, 'destination'])->name('Destination');
 Route::get('/destination/{slug?}', [HomeController::class, 'destinationDetails'])->name('DestinationDetails');
-Route::get('/packages', [HomeController::class, 'package'])->name('Packages');
-Route::get('/package', [HomeController::class, 'packageDetails'])->name('PackageDetails');
+Route::get('/packages/{slug?}', [HomeController::class, 'package'])->name('Packages');
+Route::get('/package/{slug?}', [HomeController::class, 'packageDetails'])->name('PackageDetails');

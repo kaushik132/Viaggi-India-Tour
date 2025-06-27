@@ -13,7 +13,7 @@ class Package extends Model
        protected $casts = [
         
         'itinerarys' =>'array',
-        'gallery' =>'json',
+        'image' =>'json',
         'attractions' =>'json',
         
     ];
@@ -39,7 +39,10 @@ class Package extends Model
         return $this->belongsTo(ExperienceType::class,'traveler_id');
     }
 
-
+ public function setAttractionsAttribute($value)
+    {
+        $this->attributes['attractions'] = json_encode(array_values($value));
+    }
         public function packagedetailsinsert()
     {
         return $this->hasMany(Packagedetails::class,'package_id','id');

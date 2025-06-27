@@ -7,6 +7,11 @@ use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
 use \App\Models\Package;
+use \App\Models\Region;
+use \App\Models\Budget;
+use \App\Models\Duration;
+use \App\Models\TravelerType;
+use \App\Models\ExperienceType;
 
 class PackageController extends AdminController
 {
@@ -26,35 +31,20 @@ class PackageController extends AdminController
     {
         $grid = new Grid(new Package());
 
-        $grid->column('id', __('Id'));
-        $grid->column('region_id', __('Region id'));
-        $grid->column('budget_id', __('Budget id'));
-        $grid->column('duration_id', __('Duration id'));
-        $grid->column('traveler_id', __('Traveler id'));
-        $grid->column('experience_id', __('Experience id'));
-        $grid->column('title', __('Title'));
-        $grid->column('slug', __('Slug'));
-        $grid->column('destination_name', __('Destination name'));
-        $grid->column('short_description', __('Short description'));
-        $grid->column('tour_days', __('Tour days'));
-        $grid->column('tour_location', __('Tour location'));
-        $grid->column('description', __('Description'));
-        $grid->column('price', __('Price'));
-        $grid->column('stars', __('Stars'));
-        $grid->column('reviews', __('Reviews'));
-        $grid->column('attractions', __('Attractions'));
-        $grid->column('itinerary', __('Itinerary'));
-        $grid->column('thumnail_image', __('Thumnail image'));
-        $grid->column('banner_image', __('Banner image'));
-        $grid->column('gallery', __('Gallery'));
-        $grid->column('seo_title', __('Seo title'));
-        $grid->column('seo_description', __('Seo description'));
-        $grid->column('seo_keyword', __('Seo keyword'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
 
-        return $grid;
+
+        $grid->column('title', __('Title'));
+        $grid->column('thumnail_image', __('Thumnail image'))->image('/uploads/', 100, 100);
+             $states = [
+            'on' => ['value' => 1, 'text' => 'Active', 'color' => 'primary'],
+            'off' => ['value' => 0, 'text' => 'InActive', 'color' => 'default'],
+        ];
+       $grid->column('is_featured', __('Is Featured'))->switch($states);
+       return $grid;
     }
+
+      
+    
 
     /**
      * Make a show builder.
@@ -67,11 +57,7 @@ class PackageController extends AdminController
         $show = new Show(Package::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('region_id', __('Region id'));
-        $show->field('budget_id', __('Budget id'));
-        $show->field('duration_id', __('Duration id'));
-        $show->field('traveler_id', __('Traveler id'));
-        $show->field('experience_id', __('Experience id'));
+       
         $show->field('title', __('Title'));
         $show->field('slug', __('Slug'));
         $show->field('destination_name', __('Destination name'));
@@ -82,10 +68,7 @@ class PackageController extends AdminController
         $show->field('price', __('Price'));
         $show->field('stars', __('Stars'));
         $show->field('reviews', __('Reviews'));
-        $show->field('attractions', __('Attractions'));
-        $show->field('itinerary', __('Itinerary'));
-        $show->field('thumnail_image', __('Thumnail image'));
-        $show->field('banner_image', __('Banner image'));
+      
         $show->field('gallery', __('Gallery'));
         $show->field('seo_title', __('Seo title'));
         $show->field('seo_description', __('Seo description'));
@@ -104,31 +87,64 @@ class PackageController extends AdminController
     protected function form()
     {
         $form = new Form(new Package());
+$form->tab('Fillter', function ($form) {
+      $form->select('region_id',__('Destination Category'))->options(Region::pluck('name', 'id'))->default(null)->rules('required');
+      $form->select('budget_id',__('Budget Category'))->options(Budget::pluck('name', 'id'))->default(null)->rules('required');
+      $form->select('duration_id',__('Duration Category'))->options(Duration::pluck('name', 'id'))->default(null)->rules('required');
+      $form->select('traveler_id',__('Traveler Category'))->options(TravelerType::pluck('name', 'id'))->default(null)->rules('required');
+      $form->select('experience_id',__('Experience Category'))->options(ExperienceType::pluck('name', 'id'))->default(null)->rules('required');
+        
+});
+$form->tab('Info', function ($form) {
 
-        $form->text('region_id', __('Region id'));
-        $form->text('budget_id', __('Budget id'));
-        $form->text('duration_id', __('Duration id'));
-        $form->text('traveler_id', __('Traveler id'));
-        $form->text('experience_id', __('Experience id'));
+        
         $form->text('title', __('Title'));
-        $form->text('slug', __('Slug'));
+        $form->hidden('slug');
+
+        $form->saving(function (Form $form) {
+
+           $form->slug = strtolower(preg_replace('/[^A-Za-z0-9-]+/', '-',trim($form->title)));
+        });
         $form->text('destination_name', __('Destination name'));
         $form->textarea('short_description', __('Short description'));
         $form->text('tour_days', __('Tour days'));
         $form->text('tour_location', __('Tour location'));
-        $form->textarea('description', __('Description'));
-        $form->text('price', __('Price'));
+        $form->ckeditor('description', __('Description'));
+});
+$form->tab('Package', function ($form) {
+        $form->text('price', __('Tour Price'));
         $form->text('stars', __('Stars'));
-        $form->text('reviews', __('Reviews'));
-        $form->textarea('attractions', __('Attractions'));
-        $form->text('itinerary', __('Itinerary'));
-        $form->text('thumnail_image', __('Thumnail image'));
-        $form->text('banner_image', __('Banner image'));
-        $form->textarea('gallery', __('Gallery'));
+        $form->text('reviews', __('Reviews Number'));
+        $form->list('attractions',__('Tour Attractions'))->sortable();
+    
+
+});
+$form->tab('PackageItinerary', function ($form) {
+        $form->hasMany('packagedetailsinsert','PackageItinerary', function (Form\NestedForm $form) {
+		          $form->text('order_num', __('Order Num'));
+		          $form->text('name', __('Name'));
+			        $form->textarea('description', __('Description'));
+		     });
+
+
+});
+$form->tab('Images', function ($form) {
+        $form->image('thumnail_image', __('Thumnail image'));
+        $form->image('banner_image', __('Banner image'));
+        $form->multipleImage('gallery', __('Gallery'));
+
+
+});
+$form->tab('Seo', function ($form) {
         $form->textarea('seo_title', __('Seo title'));
         $form->textarea('seo_description', __('Seo description'));
         $form->textarea('seo_keyword', __('Seo keyword'));
+                 $form->switch('is_featured', __('Is Featured'))->options([
+    1 => 'Active',
+    0 => 'Inactive',
+]);
 
+});
         return $form;
     }
 }

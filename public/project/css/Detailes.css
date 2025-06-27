@@ -265,9 +265,7 @@ nav div ul {
 }
 
 .booking-form #bookingformbtn{
-    position: absolute;
-    top: 640px;
-    left: 4px;
+ 
    
     background-color: #E45D3F;
     color: white;
@@ -376,7 +374,7 @@ nav div ul {
     justify-content: space-between;
 }
 
-.details-btn {
+/* .btn-see-more {
     background-color: #E3553AC9;
     color: white;
     border: none;
@@ -385,7 +383,7 @@ nav div ul {
     margin-left: 20px;
     padding: 8px;
     margin-top: 20px;
-}
+} */
 
 .swiper-button-next,
 .swiper-button-prev {
@@ -411,7 +409,7 @@ footer {
     border-radius: 50px;
 }
 
-.footer-content .vf-button {
+.footer-content .footer-btn {
     border: none;
     color: white;
     background-color: #5E7CBD;
@@ -623,7 +621,7 @@ footer {
         font-size: 14px;
     }
 
-    .footer-content .vf-button {
+    .footer-content .footer-btn {
         position: absolute;
         top: 50%;
         right: 10px;
@@ -723,7 +721,7 @@ footer {
         border: none;
     }
 
-    .footer-content .vf-button {
+    .footer-content .footer-btn{
         position: absolute;
         top: 50%;
         right: 10px;
@@ -817,7 +815,7 @@ footer {
         border: none;
     }
 
-    .footer-content .vf-button {
+    .footer-content .footer-btn {
         position: absolute;
         top: 50%;
         right: 10px;

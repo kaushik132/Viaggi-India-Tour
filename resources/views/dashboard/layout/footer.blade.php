@@ -13,7 +13,7 @@
 
                         <div class="position-relative">
                             <input type="email" class="form-control" placeholder="Enter Your Email">
-                            <button type="submit">Submit</button>
+                            <button type="submit" class="footer-btn">Submit</button>
                         </div>
                     </div>
                 </div>

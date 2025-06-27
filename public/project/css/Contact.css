@@ -340,7 +340,7 @@ footer {
   width: 300px;
 }
 
-button[type="submit"] {
+.footer-btn {
   border: none;
   color: white;
   background-color: #5E7CBD;
@@ -481,7 +481,7 @@ button[type="submit"] {
     font-size: 14px;
   }
 
-  .footer-content button[type="submit"] {
+  .footer-content .footer-btn{
     position: absolute;
     top: 50%;
     right: 10px;
@@ -571,7 +571,7 @@ button[type="submit"] {
     border: none;
   }
 
-  .footer-content button[type="submit"] {
+  .footer-content .footer-btn {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -822,7 +822,7 @@ button[type="submit"] {
     border: none;
   }
 
-  .footer-content button[type="submit"] {
+  .footer-content .footer-btn {
     position: absolute;
     top: 50%;
     right: 10px;

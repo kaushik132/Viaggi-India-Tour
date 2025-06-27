@@ -2,19 +2,17 @@
 @section('main-containers')
 
 
-  <main>
+    <main>
 
         <section>
             <div class="container-fluid position-relative">
                 <div class="row">
                     <div class="baner position-relative p-0">
-                        <img src="images/Contactimg.webp" alt="Goa Beach" class="banner-img" />
-                        <div
-                            class="baner-heading text-center position-absolute top-50 start-50 translate-middle text-white">
-                            <h1>Goa Getaway Sun, Sand & <br> Serenity Await</h1>
+                        <img src="{{ url('uploads/' . $packageData->banner_image) }}" alt="Goa Beach" class="banner-img" />
+                        <div class="baner-heading text-center position-absolute top-50 start-50 translate-middle text-white">
+                            <h1>{{ $packageData->title }}</h1>
                             <p>
-                                Discover the perfect blend of beaches, nightlife, culture, and relaxation. Your
-                                unforgettable <br> Goan escape starts here.
+                                {{ $packageData->short_description }}
                             </p>
                         </div>
                     </div>
@@ -28,63 +26,108 @@
         <section class="my-5">
             <div class="container">
 
-                <!-- Grid for large screens -->
+
+                @php
+                    $galleryImages = json_decode($packageData->gallery, true); // decode as array
+                @endphp
+
                 <div class="row g-4 d-none d-md-flex">
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                        <div class="image-card">
-                            <img src="images/Goature/Goature1.webp" alt="Image 1">
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                        <div class="image-card">
-                            <img src="images/Goature/Goature2.webp" alt="Image 2">
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                        <div class="image-card">
-                            <img src="images/Goature/Goature1.webp" alt="Image 3">
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-                        <div class="image-card">
-                            <a href="gallery.html">
-                                <img src="images/Goature/Goature2.webp" alt="Image 4">
-                                <div class="overlay-text">View All</div>
-                            </a>
+                    @if (is_array($galleryImages))
+                        @foreach ($galleryImages as $indexs => $images)
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                                <div class="image-card">
+                                    @if ($loop->last)
+                                        {{-- <a href="{{ url('gallery.html') }}"> --}}
+                                        <img src="{{ url('uploads/' . $images) }}" alt="Image {{ $indexs + 1 }}">
+                                        <div class="overlay-text"><span type="button" class="" data-bs-toggle="modal"
+                                                data-bs-target="#carouselModal">
+                                                View All
+                                            </span></div>
+                                        {{-- </a> --}}
+                                    @else
+                                        <img src="{{ url('uploads/' . $images) }}" alt="Image {{ $indexs + 1 }}">
+                                    @endif
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+
+
+                <div class="modal fade" id="carouselModal" tabindex="-1" aria-labelledby="carouselModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-xl"> <!-- Large Modal -->
+                        <div class="modal-content">
+                            <div class="modal-body p-0">
+                                <!-- Carousel -->
+                                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @foreach ($galleryImages as $indexss => $imagess)
+                                            <div class="carousel-item {{ $indexss === 0 ? 'active' : '' }}">
+                                                <img src="{{ url('uploads/' . $imagess) }}" class="d-block w-100 "
+                                                    alt="Image {{ $indexss + 1 }}">
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <!-- Controls -->
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+
                 <!-- Swiper for mobile only -->
                 <div class="swiper mobile-gallery-slider d-md-none">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="image-card">
-                                <img src="images/Goature/Goature1.webp" alt="Image 1">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image-card">
-                                <img src="images/Goature/Goature2.webp" alt="Image 2">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image-card">
-                                <img src="images/Goature/Goature1.webp" alt="Image 3">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image-card">
-                                <a href="gallery.html">
-                                    <img src="images/Goature/Goature2.webp" alt="Image 4">
-                                    <div class="overlay-text">View All</div>
-                                </a>
-                            </div>
-                        </div>
+                        @if (is_array($galleryImages))
+                            @foreach ($galleryImages as $index => $image)
+                                <div class="swiper-slide">
+                                    <div class="image-card">
+                                        @if ($loop->last)
+                                            {{-- <a href="{{ url('gallery.html') }}"> --}}
+                                            <img src="{{ url('uploads/' . $image) }}" alt="Image {{ $index + 1 }}">
+                                            <div class="overlay-text"><span type="button" class=""
+                                                    data-bs-toggle="modal" data-bs-target="#carouselModal">
+                                                    View All
+                                                </span></div>
+                                            {{-- </a> --}}
+                                        @else
+                                            <img src="{{ url('uploads/' . $image) }}" alt="Image {{ $index + 1 }}">
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
+
                     <!-- Optional Dots -->
                     <div class="swiper-pagination"></div>
                 </div>
+
+
+
+                <script>
+                    const swiper = new Swiper('.mobile-gallery-slider', {
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    });
+                </script>
 
             </div>
         </section>
@@ -105,65 +148,29 @@
                         <div class="tour-icons">
                             <div class="icon-box">
                                 <i class="fa-solid fa-clock"></i>
-                                <span>11 Nights/12 Days</span>
+                                <span>{{ $packageData->tour_days }}</span>
                             </div>
                             <div class="icon-box">
                                 <i class="fa-solid fa-location-dot"></i>
-                                <span>Jaipur - Delhi</span>
+                                <span>{{ $packageData->tour_location }}</span>
                             </div>
                         </div>
+                        @php
+                            $fullDescription = strip_tags($packageData->description); // remove HTML tags
+                            $shortDescription = Str::limit($fullDescription, 1555); // show only first 1555 characters
+                        @endphp
+
                         <div class="ture-description">
-                            <!-- Heading -->
-                            <h2>Goa Getaway Sun, Sand & <br> Serenity Await</h2>
+                            <h2>{{ $packageData->title }}</h2>
 
-                            <!-- Description -->
-                            <p>
-                                Located at the base of the Zabarwan Mountain is the Indira Gandhi Memorial Tulip Garden
-                                Asia’s largest tulip garden and a key attraction in Srinagar. This seven-terraced garden
-                                is celebrated for its 48 varieties of tulip flowers, appealing to both adults and
-                                children
-                                alike.
-                            </p>
-                            <p>
-                                The garden is also home to a diverse array of other flowers, including daffodils,
-                                hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing
-                                through the
-                                terraces enhances the garden’s beauty, providing an idyllic setting for memorable
-                                photographs.
-                            </p>
-                            <p>
-                                The garden is also home to a diverse array of other flowers, including daffodils,
-                                hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing
-                                through the
-                                terraces enhances the garden’s beauty, providing an idyllic setting for memorable
-                                photographs.
-                            </p>
-                            <p>
-                                The garden is also home to a diverse array of other flowers, including daffodils,
-                                hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing
-                                through the
-                                terraces enhances the garden’s beauty, providing an idyllic setting for memorable
-                                photographs.
+                            <!-- Visible Short Description -->
+                            <p class="short-description">
+                                {{ $shortDescription }}<span class="dots">...</span>
                             </p>
 
-                            <!-- ✅ Hidden Content -->
+                            <!-- Hidden Full Description -->
                             <div class="extra-content" style="display: none;">
-                                <p>
-                                    Located at the base of the Zabarwan Mountain is the Indira Gandhi Memorial Tulip
-                                    Garden
-                                    Asia’s largest tulip garden and a key attraction in Srinagar. This seven-terraced
-                                    garden
-                                    is celebrated for its 48 varieties of tulip flowers, appealing to both adults and
-                                    children
-                                    alike.
-                                </p>
-                                <p>
-                                    The garden is also home to a diverse array of other flowers, including daffodils,
-                                    hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing
-                                    through the
-                                    terraces enhances the garden’s beauty, providing an idyllic setting for memorable
-                                    photographs.
-                                </p>
+                                <p>{{ $fullDescription }}</p>
                             </div>
 
                             <button class="read-more-btn mt-2">Read More</button>
@@ -207,7 +214,7 @@
                                     <textarea class="form-control" rows="4" placeholder="Enter the message"></textarea>
                                 </div>
 
-                                <button type="submit">Book Now</button>
+                                <button type="submit" id="bookingformbtn" >Book Now</button>
                             </form>
                         </div>
                     </div>
@@ -237,90 +244,25 @@
 
                     <div class="itinerary-section">
                         <div class="accordion">
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi (Arrival)</span>
-                                </div>
-                                <div class="accordion-body">
-                                    <p>Welcome to Delhi! Arrive and check into the hotel. Rest of the day is at leisure.
-                                    </p>
-                                </div>
-                            </div>
 
-                            <!-- Copy and paste this block to add more days -->
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi Sightseeing</span>
+
+                            @foreach ($destinationsdetails as $packageData_key => $destinations_value)
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                      
+
+
+                                        <h5 class="title"><span class="plusicon">+</span>{{$destinations_value->name}}</h5>
+                                    </div>
+                                    <div class="accordion-body">
+                                        <p>{!! $destinations_value->description !!}
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="accordion-body">
-                                    <p>Visit Red Fort, India Gate, Qutub Minar and other attractions.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi Sightseeing</span>
-                                </div>
-                                <div class="accordion-body">
-                                    <p>Visit Red Fort, India Gate, Qutub Minar and other attractions.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi Sightseeing</span>
-                                </div>
-                                <div class="accordion-body">
-                                    <p>Visit Red Fort, India Gate, Qutub Minar and other attractions.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi Sightseeing</span>
-                                </div>
-                                <div class="accordion-body">
-                                    <p>Visit Red Fort, India Gate, Qutub Minar and other attractions.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi Sightseeing</span>
-                                </div>
-                                <div class="accordion-body">
-                                    <p>Visit Red Fort, India Gate, Qutub Minar and other attractions.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi Sightseeing</span>
-                                </div>
-                                <div class="accordion-body">
-                                    <p>Visit Red Fort, India Gate, Qutub Minar and other attractions.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi Sightseeing</span>
-                                </div>
-                                <div class="accordion-body">
-                                    <p>Visit Red Fort, India Gate, Qutub Minar and other attractions.</p>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">Day 1 : Delhi Sightseeing</span>
-                                </div>
-                                <div class="accordion-body">
-                                    <p>Visit Red Fort, India Gate, Qutub Minar and other attractions.</p>
-                                </div>
-                            </div>
+                            @endforeach
+
+
+
                         </div>
                     </div>
 
@@ -335,160 +277,81 @@
         <section>
             <div class="container">
                 <div class="row">
-                    <h1>Our Top Tour </h1>
+                    <h1>Our Tours </h1>
                     <p>Recommendations Curated tours for every kind of traveler.</p>
                     <div class="swiper mySwiper " id="tourSwiper">
 
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
+
+
+                            {{-- start --}}
+                            @foreach ($alltour as $all)
+                                <div class="swiper-slide">
+                                    <div>
+                                        <div class="card-box">
+                                            <img src="{{ url('uploads/' . $all->thumnail_image) }}" alt=""
+                                                class="img-fluid">
+                                            <div class="card-hedeing mt-2">
+                                                <h3>{{ $all->destination_name }}</h3>
+                                                <p> <i
+                                                        class="fa-solid  fa-indian-rupee-sign"></i><b>{{ $all->price }}</b>
+                                                </p>
                                             </div>
-                                        </div>
+                                            @php
+                                                $rating = $all->stars; // e.g. 3.5, 4, etc.
+                                                $fullStars = floor($rating); // Full stars
+                                                $halfStar = $rating - $fullStars >= 0.5 ? true : false;
+                                                $emptyStars = 5 - $fullStars - ($halfStar ? 1 : 0);
+                                            @endphp
+                                            <div class="card-hedeing">
+                                                <p class="card-subtitle">{{ $all->title }}</p>
+                                                <div class=" d-flex align-items-center">
+                                                    {{-- Full Stars --}}
+                                                    @for ($i = 0; $i < $fullStars; $i++)
+                                                        <i class="fa-solid fa-star text-warning"></i>
+                                                    @endfor
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
+                                                    {{-- Half Star --}}
+                                                    @if ($halfStar)
+                                                        <i class="fa-solid fa-star-half-stroke text-warning"></i>
+                                                    @endif
 
-                                        <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
+                                                    {{-- Empty Stars --}}
+                                                    @for ($i = 0; $i < $emptyStars; $i++)
+                                                        <i class="fa-regular fa-star text-warning"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
 
-                                        <div>
-                                            <button class="details-btn">See More</button>
+                                            <div class="d-flex justify-content-between mt-2">
+                                               
+                                                <span class="review ms-2 text-muted">{{$all->reviews}} Reviews</span>
+                                            </div>
+
+                                            <div>
+                                                @foreach ($all->attractions as $attraction)
+                                    <div class="feature-item">
+                                        <img src="{{ url('project/images/right.webp') }}" alt=""
+                                            style="height: 20px; width: 20px;">
+                                        {{ $attraction }}
+                                    </div>
+                                @endforeach
+                                            </div>
+
+                                            <div>
+                                                <button class="btn-see-more " onclick="location.href='{{ url('package/'.$all->slug) }}'">See More</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="images/sliders-image/Varanasi.webp" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Varanasi</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
+                            @endforeach
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
+                            {{-- end --}}
 
-                                        <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn">See More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
 
-                                        <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn">See More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
 
-                                        <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn">See More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
 
@@ -504,104 +367,96 @@
 
 
     </main>
-<!--swiper slider scripat-->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var swiper = new Swiper("#tourSwiper", {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            loop: true,
-            autoplay: {
-                delay: 3000,  // Slide change delay in ms (3 seconds)
-                disableOnInteraction: false // Autoplay continues even after user interaction
-            },
+    <!--swiper slider scripat-->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var swiper = new Swiper("#tourSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 3000, // Slide change delay in ms (3 seconds)
+                    disableOnInteraction: false // Autoplay continues even after user interaction
+                },
+                pagination: {
+                    el: "#tourSwiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    576: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+        });
+    </script>
+
+
+    <!-- only for mobile phone  swiper scripat for images -->
+
+    <script>
+        const gallerySwiper = new Swiper(".mobile-gallery-slider", {
+            slidesPerView: 1, // Default for mobile: only one image visible
+            spaceBetween: 10,
             pagination: {
-                el: "#tourSwiper-pagination",
+                el: ".swiper-pagination",
                 clickable: true,
             },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
             breakpoints: {
+                // 576px and up — small tablets
                 576: {
                     slidesPerView: 1,
+                    spaceBetween: 15,
                 },
+                // 768px and up — tablets
                 768: {
                     slidesPerView: 2,
+                    spaceBetween: 20,
                 },
-                992: {
-                    slidesPerView: 3,
-                },
-                1200: {
-                    slidesPerView: 3,
-                },
+
             },
         });
-    });
-</script>
+    </script>
 
 
-<!-- only for mobile phone  swiper scripat for images -->
+    <!-- read button scripat -->
 
-<script>
-    const gallerySwiper = new Swiper(".mobile-gallery-slider", {
-        slidesPerView: 1, // Default for mobile: only one image visible
-        spaceBetween: 10,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        breakpoints: {
-            // 576px and up — small tablets
-            576: {
-                slidesPerView: 1,
-                spaceBetween: 15,
-            },
-            // 768px and up — tablets
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const readMoreBtn = document.querySelector('.read-more-btn');
+            const extraContent = document.querySelector('.extra-content');
+            const shortDescription = document.querySelector('.short-description');
 
-        },
-    });
-</script>
+            readMoreBtn.addEventListener('click', function() {
+                const isHidden = extraContent.style.display === 'none' || extraContent.style.display === '';
 
-
-<!-- read button scripat -->
-
-<script>
-    document.querySelector('.read-more-btn').addEventListener('click', function () {
-        const extraContent = document.querySelector('.extra-content');
-
-        if (extraContent.style.display === 'none') {
-            extraContent.style.display = 'block';
-            this.textContent = 'Read Less';
-        } else {
-            extraContent.style.display = 'none';
-            this.textContent = 'Read More';
+                extraContent.style.display = isHidden ? 'block' : 'none';
+                shortDescription.style.display = isHidden ? 'none' : 'block';
+                this.textContent = isHidden ? 'Read Less' : 'Read More';
+            });
+        });
+    </script>
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
         }
-    });
-</script>
-<script>
-    function toggleAccordion(header) {
-        const item = header.parentElement;
-        const allItems = document.querySelectorAll('.accordion-item');
+    </script>
 
-        allItems.forEach(i => {
-            if (i !== item) {
-                i.classList.remove('active');
-                i.querySelector('.icon').textContent = '+';
-            }
-        });
-
-        const isActive = item.classList.contains('active');
-        item.classList.toggle('active');
-        header.querySelector('.icon').textContent = isActive ? '+' : '-';
-    }
-</script>
 
 
 @endsection

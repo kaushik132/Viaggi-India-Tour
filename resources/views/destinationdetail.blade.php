@@ -212,7 +212,7 @@
                                     <textarea class="form-control" rows="4" placeholder="Enter the message"></textarea>
                                 </div>
 
-                                <button id="bookingformbtn" type="submit">Book Now</button>
+                                <button type="submit" id="bookingformbtn" >Book Now</button>
                             </form>
                         </div>
                     </div>
@@ -248,8 +248,10 @@
                    
                             <div class="accordion-item">
                                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                                    <span class="icon">+</span>
-                                    <span class="title">{{$destinations_value->name}}</span>
+                                    {{-- <span class="icon">+</span>
+                                    <span class="title">{{$destinations_value->name}}</span> --}}
+
+                                    <h5 class="title"><span class="plusicon">+</span>{{$destinations_value->name}}</h5>
                                 </div>
                                 <div class="accordion-body">
                                     <p>{!!$destinations_value->description!!}
@@ -277,163 +279,84 @@
         <!-- hotels-->
 
 
-        <section>
+         <section>
             <div class="container">
                 <div class="row">
-                    <h1>Our Top Tour </h1>
+                    <h1>Our Tours </h1>
                     <p>Recommendations Curated tours for every kind of traveler.</p>
                     <div class="swiper mySwiper " id="tourSwiper">
 
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
+
+
+                            {{-- start --}}
+                            @foreach ($alltour as $all)
+                                <div class="swiper-slide">
+                                    <div>
+                                        <div class="card-box">
+                                            <img src="{{ url('uploads/' . $all->thumnail_image) }}" alt=""
+                                                class="img-fluid">
+                                            <div class="card-hedeing mt-2">
+                                                <h3>{{ $all->destination_name }}</h3>
+                                                <p> <i
+                                                        class="fa-solid  fa-indian-rupee-sign"></i><b>{{ $all->price }}</b>
+                                                </p>
                                             </div>
-                                        </div>
+                                            @php
+                                                $rating = $all->stars; // e.g. 3.5, 4, etc.
+                                                $fullStars = floor($rating); // Full stars
+                                                $halfStar = $rating - $fullStars >= 0.5 ? true : false;
+                                                $emptyStars = 5 - $fullStars - ($halfStar ? 1 : 0);
+                                            @endphp
+                                            <div class="card-hedeing">
+                                                <p class="card-subtitle">{{ $all->title }}</p>
+                                                <div class=" d-flex align-items-center">
+                                                    {{-- Full Stars --}}
+                                                    @for ($i = 0; $i < $fullStars; $i++)
+                                                        <i class="fa-solid fa-star text-warning"></i>
+                                                    @endfor
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
+                                                    {{-- Half Star --}}
+                                                    @if ($halfStar)
+                                                        <i class="fa-solid fa-star-half-stroke text-warning"></i>
+                                                    @endif
 
-                                        <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
+                                                    {{-- Empty Stars --}}
+                                                    @for ($i = 0; $i < $emptyStars; $i++)
+                                                        <i class="fa-regular fa-star text-warning"></i>
+                                                    @endfor
+                                                </div>
+                                            </div>
 
-                                        <div>
-                                            <button class="details-btn">See More</button>
+                                            <div class="d-flex justify-content-between mt-2">
+                                               
+                                                <span class="review ms-2 text-muted">{{$all->reviews}} Reviews</span>
+                                            </div>
+
+                                            <div>
+                                                @foreach ($all->attractions as $attraction)
+                                    <div class="feature-item">
+                                        <img src="{{ url('project/images/right.webp') }}" alt=""
+                                            style="height: 20px; width: 20px;">
+                                        {{ $attraction }}
+                                    </div>
+                                @endforeach
+                                            </div>
+
+                                            <div>
+                                                <button class="btn-see-more " onclick="location.href='{{ url('package/'.$all->slug) }}'">See More</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="images/sliders-image/Varanasi.webp" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Varanasi</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
+                            @endforeach
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
+                            {{-- end --}}
 
-                                        <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn">See More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
 
-                                        <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn">See More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="images/sliders-image/Goa.webp" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
 
-                                        <div>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="images/right.webp" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn">See More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
 
