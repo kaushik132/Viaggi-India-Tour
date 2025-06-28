@@ -27,8 +27,9 @@ class HomeController extends Controller
         //   $seo_data['keywords'] = $homepage->seo_key_home;
         //      $canocial ='https://bbsmituni.com';
         $banners = HomeBanner::latest()->get();
+        $destinations = Destinations::latest()->take(6)->get();
         $testimonials = Testimonial::latest()->take(6)->get();
-        return view('home', compact('banners', 'testimonials'));
+        return view('home', compact('banners', 'testimonials','destinations'));
        
     }
 
@@ -95,32 +96,6 @@ class HomeController extends Controller
         return view('destinationdetail', compact('destinationsData', 'destinationsdetails', 'alltour'));
     }
 
-
-    // function package($slug = null)
-    // {
-    //         // $homepage = Title::select('seo_title_blog','seo_des_blog','seo_key_blog')->first();
-    //     if ($slug != null) {
-    //         $packageCategory = Region::where('slug', $slug)->first();
-    //         $packageList = Package::latest()->with('regionCategorys')->where('region_id', $packageCategory->id)->paginate(6);
-    //         //            $seo_data['seo_description'] =$blogCategory->seo_description;
-    //         //    $seo_data['keywords'] =$blogCategory->seo_keyword;
-    //         //    $seo_data['seo_title'] =$blogCategory->seo_title;
-
-    //     } else {
-    //         $packageList = Package::latest()->with('regionCategorys')->paginate(6);
-    //         //      $seo_data['seo_description'] =$homepage->seo_des_blog;
-    //         //    $seo_data['keywords'] =$homepage->seo_key_blog;
-    //         //    $seo_data['seo_title'] =$homepage->seo_title_blog;
-
-    //     }
-    //            $banners = HomeBanner::latest()->get();
-    //            $region = Region::latest()->get();
-    //            $budget = Budget::latest()->get();
-    //            $duration = Duration::latest()->get();
-    //            $traveler = TravelerType::latest()->get();
-    //            $experience = ExperienceType::latest()->get();
-    //     return view('package',compact('packageList','banners','region','budget','duration','traveler','experience'));
-    // }
 
 
     public function package(Request $request, $slug = null)

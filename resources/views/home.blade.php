@@ -66,48 +66,22 @@
             <!-- Desktop/Tablet view -->
             <div class="content-desktop container btn-btn-primary">
                 <div class="row gx-5">
+
+@foreach ($destinations as $destination)
+    
+
                     <div class="col-12 col-sm-6 col-md-4">
-                        <div class="image"><img src="{{url('project/images/manali.webp')}}" class="img-fluid">
-                            <a href="detaile.html">
-                                <p>Ladakh</p>
+                        <div class="image"><img src="{{url('uploads/'.$destination->thumnail_image)}}" class="img-fluid">
+                            <a href="{{url('destination/'.$destination->slug)}}">
+                                <p>{{$destination->destination_name}}</p>
                             </a>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="{{url('project/images/Hawa mahal.webp')}}" class="img-fluid">
-                            <a href="detaile.html">
-                                <p>Jaipur</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="{{url('project/images/Lotus temple.webp')}}" class="img-fluid">
-                            <a href="detaile.html">
-                                <p>Lotus Temple</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="{{url('project/images/Ladakh.webp')}}" class="img-fluid">
-                            <a href="detaile.html">
-                                <p>Ladakh</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="{{url('project/images/Khagrachair.webp')}}" class="img-fluid">
-                            <a href="detaile.html">
-                                <p>Ladakh</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4 mb-4">
-                        <div class="image"><img src="{{url('project/images/Taj mahal.webp')}}" class="img-fluid">
-                            <a href="detaile.html">
-                                <p>Taj Mahal</p>
-                            </a>
-                        </div>
-                    </div>
+                  @endforeach
+                    
+                 
+                 
+                 
                 </div>
             </div>
 
@@ -116,48 +90,18 @@
                 <div class="swiper myMobileSwiperOnly"> <!-- CHANGED FROM myUniqueSwiper to myMobileSwiperOnly -->
                     <div class="swiper-wrapper">
                         <!-- loop through same items -->
+                
+                 
+                     @foreach ($destinations as $desti)
                         <div class="swiper-slide">
-                            <div class="image"><img src="images/manali.webp" class="img-fluid">
-                                <a href="detaile.html">
-                                    <p>Ladakh</p>
+                            <div class="image"><img src="{{url('uploads/'.$desti->thumnail_image)}}" class="img-fluid">
+                                <a href="{{url('destination/'.$desti->slug)}}">
+                                    <p>{{$desti->destination_name}}</p>
                                 </a>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="image"><img src="images/Hawa mahal.webp" class="img-fluid">
-                                <a href="detaile.html">
-                                    <p>Jaipur</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image"><img src="images/Lotus temple.webp" class="img-fluid">
-                                <a href="detaile.html">
-                                    <p>Lotus Temple</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image"><img src="images/Ladakh.webp" class="img-fluid">
-                                <a href="detaile.html">
-                                    <p>Ladakh</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image"><img src="images/Khagrachair.webp" class="img-fluid">
-                                <a href="detaile.html">
-                                    <p>Ladakh</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image"><img src="images/Taj mahal.webp" class="img-fluid">
-                                <a href="detaile.html">
-                                    <p>Taj Mahal</p>
-                                </a>
-                            </div>
-                        </div>
+                      @endforeach
+                       
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
