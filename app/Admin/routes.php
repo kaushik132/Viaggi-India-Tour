@@ -28,6 +28,8 @@ Route::group([
     $router->resource('testimonials', TestimonialController::class);
     
 
+    $router->resource('bookings', BookingController::class);
+
 
 
 

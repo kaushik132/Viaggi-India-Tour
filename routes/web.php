@@ -20,3 +20,7 @@ Route::get('/destinations/{slug?}', [HomeController::class, 'destination'])->nam
 Route::get('/destination/{slug?}', [HomeController::class, 'destinationDetails'])->name('DestinationDetails');
 Route::get('/packages/{slug?}', [HomeController::class, 'package'])->name('Packages');
 Route::get('/package/{slug?}', [HomeController::class, 'packageDetails'])->name('PackageDetails');
+
+
+
+Route::post('/book-tour', [HomeController::class, 'bookingStore'])->name('book.tour');

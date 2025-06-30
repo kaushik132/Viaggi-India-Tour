@@ -180,36 +180,67 @@
                     <div class="col-lg-5">
                         <div class="booking-form">
 
-                            <form>
+                            <form action="{{url('/book-tour')}}" method="POST">
+                                @csrf
+
+                                 @if(session('success'))
+                                 <p style="color: green;">{{ session('success') }}</p>
+                                  @endif
                                 <h4>Book this tour</h4>
                                 <div class="mb-3">
+                                    <label class="form-label">Tour Name</label>
+                                    <input type="text" class="form-control @error('tour_name') is-invalid @enderror" placeholder="Tour Name" name="tour_name" value="{{ old('tour_name') }}">
+                                       @error('tour_name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                                </div>
+
+                                <div class="mb-3">
                                     <label class="form-label">Name</label>
-                                    <input type="text" class="form-control" placeholder="Enter your name">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Enter your name" name="name" value="{{ old('name') }}" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+                                       @error('name')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Phone Number</label>
-                                    <input type="text" class="form-control" placeholder="Enter your Phone number">
+                                    <input type="number" class="form-control @error('phone_number') is-invalid @enderror" placeholder="Enter your Phone number" name="phone_number" value="{{ old('phone_number') }}"  oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="10">
+                                       @error('phone_number')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Email id</label>
-                                    <input type="email" class="form-control" placeholder="Enter your Email id">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Enter your Email id" name="email" value="{{ old('email') }}">
+                                       @error('email')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Number of Persons</label>
-                                    <input type="number" class="form-control" placeholder="Persons*">
+                                    <input type="number" class="form-control @error('persons') is-invalid @enderror" placeholder="Persons*" name="persons" value="{{ old('persons') }}">
+                                       @error('persons')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Number of Children</label>
-                                    <input type="number" class="form-control" placeholder="Persons*">
+                                    <input type="number" class="form-control @error('children') is-invalid @enderror" placeholder="Persons*" name="children" value="{{ old('children') }}">
+                                       @error('children')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                                 </div>
 
                                 <div class="mb-3">
                                     <label class="form-label">Message</label>
-                                    <textarea class="form-control" rows="4" placeholder="Enter the message"></textarea>
+                                    <textarea class="form-control @error('message') is-invalid @enderror" rows="4" placeholder="Enter the message" name="message" value="{{ old('message') }}"></textarea>
+                                       @error('message')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                                 </div>
 
                                 <button type="submit" id="bookingformbtn" >Book Now</button>
