@@ -28,7 +28,7 @@ class HomeController extends Controller
           $seo_data['seo_description'] = $homepage->seo_des_home;
           $seo_data['keywords'] = $homepage->seo_key_home;
           $seo_data['image'] = $homepage->seo_image_home;
-             $canocial ='https://bbsmituni.com';
+             $canocial ='http://127.0.0.1:8000/';
         $banners = HomeBanner::latest()->get();
         $destinations = Destinations::latest()->take(6)->get();
         $testimonials = Testimonial::latest()->take(6)->get();
@@ -47,7 +47,7 @@ class HomeController extends Controller
                $seo_data['keywords'] =$homepage->seo_key_contact;
                $seo_data['seo_title'] =$homepage->seo_title_contact;
                $seo_data['image'] =$homepage->seo_image_contact;
-  $canocial ='https://bbsmituni.com';
+  $canocial ='http://127.0.0.1:8000/contact-us';
         return view('contact',compact('seo_data', 'canocial'));
     }
 
@@ -86,7 +86,7 @@ class HomeController extends Controller
                $seo_data['keywords'] =$destinationsList->seo_keyword;
                $seo_data['seo_title'] =$destinationsList->seo_title;
                $seo_data['image'] =$destinationsList->thumnail_image;
-             $canocial ='https://bbsmituni.com';
+             $canocial ='http://127.0.0.1:8000/destination/'.$slug;
 
         } else {
             $destinationsList = Destinations::latest()->with('regionCategory')->paginate(6);
@@ -94,7 +94,7 @@ class HomeController extends Controller
                $seo_data['keywords'] =$homepage->seo_key_destination;
                $seo_data['seo_title'] =$homepage->seo_title_destination;
                $seo_data['image'] =$homepage->seo_image_destination;
- $canocial ='https://bbsmituni.com';
+ $canocial ='http://127.0.0.1:8000/destinations';
         }
 
         $fillter = Region::all();
@@ -108,7 +108,7 @@ class HomeController extends Controller
           $seo_data['seo_description'] =$destinationsData->seo_description;
           $seo_data['keywords'] =$destinationsData->seo_keyword;
           $seo_data['image'] =$destinationsData->thumnail_image;
-         $canocial ='https://bbsmituni.com';
+         $canocial ='http://127.0.0.1:8000/destination/'.$destinationsData->slug;
         $destinationsdetails = Tourdetails::orderBy('order_num', 'asc')->where('tour_id', $destinationsData->id)->get();
         return view('destinationdetail', compact('destinationsData', 'destinationsdetails', 'alltour', 'seo_data', 'canocial'));
     }
@@ -122,7 +122,7 @@ class HomeController extends Controller
                $seo_data['keywords'] =$homepage->seo_key_package;
                $seo_data['seo_title'] =$homepage->seo_title_package;
                $seo_data['image'] =$homepage->seo_image_package;
- $canocial ='https://bbsmituni.com';
+ $canocial ='http://127.0.0.1:8000/packages';
         $query = Package::query()->latest()->with('regionCategorys');
 
         // Slug based filtering (e.g., /package/rajasthan)
@@ -187,9 +187,9 @@ class HomeController extends Controller
           $seo_data['seo_description'] =$packageData->seo_description;
           $seo_data['keywords'] =$packageData->seo_keyword;
           $seo_data['image'] =$packageData->thumnail_image;
-         $canocial ='https://bbsmituni.com';
+         $canocial ='http://127.0.0.1:8000/package/'.$packageData->slug;
         $destinationsdetails = Packagedetails::orderBy('order_num', 'asc')->where('package_id', $packageData->id)->get();
-        return view('packageDetails', compact('packageData', 'destinationsdetails', 'alltour'));
+        return view('packageDetails', compact('packageData', 'destinationsdetails', 'alltour','seo_data', 'canocial'));
     }
 
     public function bookingStore(Request $request)

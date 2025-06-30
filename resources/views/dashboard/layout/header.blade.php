@@ -6,9 +6,9 @@
         @if (isset($seo_data['seo_title']))
         <meta property="og:title" content="{{ $seo_data['seo_title'] }}">
     @endif
-    <meta property="og:site_name" content="bbsmituni">
+    <meta property="og:site_name" content="http://127.0.0.1:8000/">
 
-    <meta property="og:url" content="https://bbsmituni.com/">
+    <meta property="og:url" content="http://127.0.0.1:8000/">
 
     @if (isset($seo_data['seo_description']))
         <meta property="og:description" content="{{ $seo_data['seo_description'] }}">
