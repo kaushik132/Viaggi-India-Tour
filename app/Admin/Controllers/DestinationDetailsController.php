@@ -104,7 +104,7 @@ class DestinationDetailsController extends AdminController
   $form->tab('SEO', function ($form) {
         $form->text('seo_title', __('Seo Title'));
         $form->textarea('seo_description', __('Seo Description'));
-        $form->textarea('seo_keyword', __('Deo Keyword'));
+        $form->textarea('seo_keyword', __('Seo Keyword'));
   });
 
 

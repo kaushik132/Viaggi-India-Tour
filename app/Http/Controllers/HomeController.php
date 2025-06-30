@@ -15,6 +15,7 @@ use \App\Models\Budget;
 use \App\Models\Duration;
 use \App\Models\TravelerType;
 use \App\Models\ExperienceType;
+use \App\Models\Booking;
 
 class HomeController extends Controller
 {
@@ -162,4 +163,21 @@ class HomeController extends Controller
         $destinationsdetails = Packagedetails::orderBy('order_num', 'asc')->where('package_id', $packageData->id)->get();
         return view('packageDetails', compact('packageData', 'destinationsdetails', 'alltour'));
     }
+
+    public function bookingStore(Request $request)
+{
+    $validated = $request->validate([
+        'tour_name' => 'required|string|max:255',
+        'name' => ['required', 'string', 'regex:/^[a-zA-Z\s]+$/', 'max:255'],
+        'phone_number' => 'required|digits:10',
+        'email' => ['required', 'regex:/^[a-zA-Z0-9._%+-]+@gmail\.com$/'],
+        'persons' => 'required|integer',
+        'children' => 'required|integer',
+        'message' => 'nullable|string',
+    ]);
+
+    Booking::create($validated);
+
+    return redirect()->back()->with('success', 'Booking submitted successfully!');
+}
 }
