@@ -16,31 +16,39 @@ use \App\Models\Duration;
 use \App\Models\TravelerType;
 use \App\Models\ExperienceType;
 use \App\Models\Booking;
+use \App\Models\Title;
 
 class HomeController extends Controller
 {
     function index()
     {
 
-        //     $homepage = Title::first();
-        //   $seo_data['seo_title'] = $homepage->seo_title_home;
-        //   $seo_data['seo_description'] = $homepage->seo_des_home;
-        //   $seo_data['keywords'] = $homepage->seo_key_home;
-        //      $canocial ='https://bbsmituni.com';
+            $homepage = Title::first();
+          $seo_data['seo_title'] = $homepage->seo_title_home;
+          $seo_data['seo_description'] = $homepage->seo_des_home;
+          $seo_data['keywords'] = $homepage->seo_key_home;
+          $seo_data['image'] = $homepage->seo_image_home;
+             $canocial ='https://bbsmituni.com';
         $banners = HomeBanner::latest()->get();
         $destinations = Destinations::latest()->take(6)->get();
         $testimonials = Testimonial::latest()->take(6)->get();
         $alltour = Package::inRandomOrder()->with('regionCategorys')->get();
       
 
-        return view('home', compact('banners', 'testimonials','destinations','alltour'));
+        return view('home', compact('banners', 'testimonials','destinations','alltour', 'seo_data', 'canocial'));
        
     }
 
 
     function contact()
     {
-        return view('contact');
+         $homepage = Title::select('seo_title_contact','seo_des_contact','seo_key_contact','seo_image_contact')->first();
+                     $seo_data['seo_description'] =$homepage->seo_des_contact;
+               $seo_data['keywords'] =$homepage->seo_key_contact;
+               $seo_data['seo_title'] =$homepage->seo_title_contact;
+               $seo_data['image'] =$homepage->seo_image_contact;
+  $canocial ='https://bbsmituni.com';
+        return view('contact',compact('seo_data', 'canocial'));
     }
 
     function contactPost(Request $request)
@@ -70,40 +78,51 @@ class HomeController extends Controller
 
     function destination($slug = null)
     {
-        // $homepage = Title::select('seo_title_blog','seo_des_blog','seo_key_blog')->first();
+        $homepage = Title::select('seo_title_destination','seo_des_destination','seo_key_destination','seo_image_destination')->first();
         if ($slug != null) {
             $destinationCategory = Region::where('slug', $slug)->first();
             $destinationsList = Destinations::latest()->with('regionCategory')->where('region_id', $destinationCategory->id)->paginate(6);
-            //            $seo_data['seo_description'] =$blogCategory->seo_description;
-            //    $seo_data['keywords'] =$blogCategory->seo_keyword;
-            //    $seo_data['seo_title'] =$blogCategory->seo_title;
+                       $seo_data['seo_description'] =$destinationsList->seo_description;
+               $seo_data['keywords'] =$destinationsList->seo_keyword;
+               $seo_data['seo_title'] =$destinationsList->seo_title;
+               $seo_data['image'] =$destinationsList->thumnail_image;
+             $canocial ='https://bbsmituni.com';
 
         } else {
             $destinationsList = Destinations::latest()->with('regionCategory')->paginate(6);
-            //      $seo_data['seo_description'] =$homepage->seo_des_blog;
-            //    $seo_data['keywords'] =$homepage->seo_key_blog;
-            //    $seo_data['seo_title'] =$homepage->seo_title_blog;
-
+                 $seo_data['seo_description'] =$homepage->seo_des_destination;
+               $seo_data['keywords'] =$homepage->seo_key_destination;
+               $seo_data['seo_title'] =$homepage->seo_title_destination;
+               $seo_data['image'] =$homepage->seo_image_destination;
+ $canocial ='https://bbsmituni.com';
         }
 
         $fillter = Region::all();
-        return view('destination', compact('destinationsList', 'fillter'));
+        return view('destination', compact('destinationsList', 'fillter', 'seo_data', 'canocial'));
     }
     function destinationDetails($slug = null)
     {
         $alltour = Package::inRandomOrder()->with('regionCategorys')->get();
         $destinationsData = Destinations::with('regionCategory')->where('slug', $slug)->first();
-        //       $seo_data['seo_title'] =$destinationsData->seo_title;
-        //   $seo_data['seo_description'] =$destinationsData->description;
-        //   $seo_data['keywords'] =$destinationsData->keywords;
+              $seo_data['seo_title'] =$destinationsData->seo_title;
+          $seo_data['seo_description'] =$destinationsData->seo_description;
+          $seo_data['keywords'] =$destinationsData->seo_keyword;
+          $seo_data['image'] =$destinationsData->thumnail_image;
+         $canocial ='https://bbsmituni.com';
         $destinationsdetails = Tourdetails::orderBy('order_num', 'asc')->where('tour_id', $destinationsData->id)->get();
-        return view('destinationdetail', compact('destinationsData', 'destinationsdetails', 'alltour'));
+        return view('destinationdetail', compact('destinationsData', 'destinationsdetails', 'alltour', 'seo_data', 'canocial'));
     }
 
 
 
     public function package(Request $request, $slug = null)
     {
+        $homepage = Title::select('seo_title_package','seo_des_package','seo_key_package','seo_image_package')->first();
+         $seo_data['seo_description'] =$homepage->seo_des_package;
+               $seo_data['keywords'] =$homepage->seo_key_package;
+               $seo_data['seo_title'] =$homepage->seo_title_package;
+               $seo_data['image'] =$homepage->seo_image_package;
+ $canocial ='https://bbsmituni.com';
         $query = Package::query()->latest()->with('regionCategorys');
 
         // Slug based filtering (e.g., /package/rajasthan)
@@ -154,7 +173,8 @@ class HomeController extends Controller
             'budget',
             'duration',
             'traveler',
-            'experience'
+            'experience',
+           'seo_data', 'canocial'
         ));
     }
 
@@ -163,6 +183,11 @@ class HomeController extends Controller
     {
         $alltour = Package::inRandomOrder()->with('regionCategorys')->get();
         $packageData = Package::with('regionCategorys')->where('slug', $slug)->first();
+               $seo_data['seo_title'] =$packageData->seo_title;
+          $seo_data['seo_description'] =$packageData->seo_description;
+          $seo_data['keywords'] =$packageData->seo_keyword;
+          $seo_data['image'] =$packageData->thumnail_image;
+         $canocial ='https://bbsmituni.com';
         $destinationsdetails = Packagedetails::orderBy('order_num', 'asc')->where('package_id', $packageData->id)->get();
         return view('packageDetails', compact('packageData', 'destinationsdetails', 'alltour'));
     }

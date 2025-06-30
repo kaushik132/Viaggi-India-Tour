@@ -29,6 +29,7 @@ Route::group([
     
 
     $router->resource('bookings', BookingController::class);
+    $router->resource('titles', SeoTitleController::class);
 
 
 

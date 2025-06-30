@@ -3,6 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
+        @if (isset($seo_data['seo_title']))
+        <meta property="og:title" content="{{ $seo_data['seo_title'] }}">
+    @endif
+    <meta property="og:site_name" content="bbsmituni">
+
+    <meta property="og:url" content="https://bbsmituni.com/">
+
+    @if (isset($seo_data['seo_description']))
+        <meta property="og:description" content="{{ $seo_data['seo_description'] }}">
+    @endif
+
+
+    @if (isset($seo_data['seo_title']))
+        <title>{{ $seo_data['seo_title'] }}</title>
+    @endif
+
+    @if (isset($seo_data['seo_description']))
+        <meta name="description" content="{{ $seo_data['seo_description'] }}" />
+    @endif
+
+    @if (isset($seo_data['keywords']))
+        <meta name="keywords" content="{{ $seo_data['keywords'] }}" />
+    @endif
+
+
+    @if (isset($canocial))
+        <link rel="canonical" href="{{ $canocial }}" />
+    @endif
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{url('uplaods/'.$seo_data['image'])  }}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{{url('project/css/style.css')}}">
