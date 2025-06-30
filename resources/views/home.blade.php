@@ -144,159 +144,65 @@
                     <div class="swiper mySwiper " id="tourSwiper">
 
                         <div class="swiper-wrapper">
+
+                                @foreach ($alltour as $all)
                             <div class="swiper-slide">
                                 <div>
                                     <div class="card-box">
-                                        <img src="{{url('project/images/sliders-image/Goa.webp')}}" alt="" class="img-fluid">
+                                        <img src="{{ url('uploads/' . $all->thumnail_image) }}" alt="" class="img-fluid">
                                         <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
+                                            <h3>{{ $all->destination_name }}</h3>
+                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>{{ $all->price }}</b></p>
                                         </div>
+                                        @php
+                                                $rating = $all->stars; // e.g. 3.5, 4, etc.
+                                                $fullStars = floor($rating); // Full stars
+                                                $halfStar = $rating - $fullStars >= 0.5 ? true : false;
+                                                $emptyStars = 5 - $fullStars - ($halfStar ? 1 : 0);
+                                            @endphp
                                         <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
+                                            <p class="card-subtitle">{{ $all->title }}</p>
                                             <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
+                                              @for ($i = 0; $i < $fullStars; $i++)
+                                                        <i class="fa-solid fa-star text-warning"></i>
+                                                    @endfor
+                                                       {{-- Half Star --}}
+                                                    @if ($halfStar)
+                                                        <i class="fa-solid fa-star-half-stroke text-warning"></i>
+                                                    @endif
+                                                       {{-- Empty Stars --}}
+                                                    @for ($i = 0; $i < $emptyStars; $i++)
+                                                        <i class="fa-regular fa-star text-warning"></i>
+                                                    @endfor
                                             </div>
                                         </div>
 
                                         <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
+                                           
+                                            <span class="review ms-2 text-muted">{{$all->reviews}} Reviews</span>
                                         </div>
 
+                                        @foreach ($all->attractions as $attraction)
                                         <div>
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
+                                            <li><img src="{{ url('project/images/right.webp') }}" alt="" class="img-fluid"
+                                                    style="height: 20px;width: 20px;">  {{ $attraction }}</li>
+
                                         </div>
+                                         @endforeach
 
                                         <div>
-                                            <button class="details-btn " onclick="location.href='Detaile.html'">See
+                                            <button class="details-btn " onclick="location.href='{{ url('package/'.$all->slug) }}'">See
                                                 More</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="{{url('project/images/sliders-image/Varanasi.webp')}}" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Varanasi</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
+                                            @endforeach
 
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
 
-                                        <div>
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn " onclick="location.href='Detaile.html'">See
-                                                More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="{{url('project/images/sliders-image/Goa.webp')}}" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
-
-                                        <div>
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn " onclick="location.href='Detaile.html'">See
-                                                More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div>
-                                    <div class="card-box">
-                                        <img src="{{url('project/images/sliders-image/Goa.webp')}}" alt="" class="img-fluid">
-                                        <div class="card-hedeing mt-2">
-                                            <h3>Goa</h3>
-                                            <p> <i class="fa-solid  fa-indian-rupee-sign"></i><b>11,000</b></p>
-                                        </div>
-                                        <div class="card-hedeing">
-                                            <p class="card-subtitle">Discover the Magic of Kashmir</p>
-                                            <div class=" d-flex align-items-center">
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-solid fa-star text-warning"></i>
-                                                <i class="fa-regular fa-star text-warning"></i>
-                                            </div>
-                                        </div>
-
-                                        <div class="d-flex justify-content-between mt-2">
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <span class="review ms-2 text-muted">1.5k Reviews</span>
-                                        </div>
-
-                                        <div>
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                            <li><img src="{{url('project/images/right.webp')}}" alt="" class="img-fluid"
-                                                    style="height: 20px;width: 20px;"> 11Night/12 Days</li>
-                                        </div>
-                                        <div>
-                                            <button class="details-btn " onclick="location.href='Detaile.html'">See
-                                                More</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                      
+                        
+                           
                         </div>
 
 

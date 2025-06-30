@@ -29,7 +29,10 @@ class HomeController extends Controller
         $banners = HomeBanner::latest()->get();
         $destinations = Destinations::latest()->take(6)->get();
         $testimonials = Testimonial::latest()->take(6)->get();
-        return view('home', compact('banners', 'testimonials','destinations'));
+        $alltour = Package::inRandomOrder()->with('regionCategorys')->get();
+      
+
+        return view('home', compact('banners', 'testimonials','destinations','alltour'));
        
     }
 
