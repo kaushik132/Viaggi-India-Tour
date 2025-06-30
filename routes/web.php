@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ Route::get('/package/{slug?}', [HomeController::class, 'packageDetails'])->name(
 
 
 Route::post('/book-tour', [HomeController::class, 'bookingStore'])->name('book.tour');
+
+Route::get('sitemap.xml',[SitemapController::class, 'index']);
