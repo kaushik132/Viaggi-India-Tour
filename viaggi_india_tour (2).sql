@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2025 at 12:51 PM
+-- Generation Time: Jul 01, 2025 at 09:32 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -66,7 +66,9 @@ INSERT INTO `admin_menu` (`id`, `parent_id`, `order`, `title`, `icon`, `uri`, `p
 (22, 24, 23, 'Experience Types', 'icon-file', 'experience-types', NULL, '2025-06-24 06:32:43', '2025-06-25 23:49:17'),
 (23, 0, 16, 'Packages', 'icon-file', 'packages', NULL, '2025-06-25 00:06:02', '2025-06-25 23:49:17'),
 (24, 0, 18, 'Fillers', 'icon-align-justify', NULL, NULL, '2025-06-25 23:46:25', '2025-06-25 23:49:17'),
-(26, 0, 0, 'Testimonials', 'icon-address-book', 'testimonials', '*', '2025-06-26 00:51:02', '2025-06-26 00:51:02');
+(26, 0, 0, 'Testimonials', 'icon-address-book', 'testimonials', '*', '2025-06-26 00:51:02', '2025-06-26 00:51:02'),
+(27, 0, 0, 'Booking', 'icon-address-book', 'bookings', '*', '2025-06-29 23:30:29', '2025-06-29 23:30:29'),
+(28, 0, 23, 'Titles', 'icon-file', 'titles', NULL, '2025-06-29 23:49:21', '2025-06-29 23:49:21');
 
 -- --------------------------------------------------------
 
@@ -718,7 +720,50 @@ INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `inp
 (622, 1, 'admin/packages/1/edit', 'GET', '127.0.0.1', '[]', '2025-06-26 05:39:14', '2025-06-26 05:39:14');
 INSERT INTO `admin_operation_log` (`id`, `user_id`, `path`, `method`, `ip`, `input`, `created_at`, `updated_at`) VALUES
 (623, 1, 'admin/packages/1', 'PUT', '127.0.0.1', '{\"region_id\":\"2\",\"search_terms\":null,\"budget_id\":\"3\",\"duration_id\":\"4\",\"traveler_id\":\"1\",\"experience_id\":\"3\",\"title\":\"Varanasi\",\"slug\":\"varanasi\",\"destination_name\":\"Varanasi\",\"short_description\":\"Discover the perfect blend of beaches, nightlife, culture, and relaxation. Your unforgettable\\r\\nGoan escape starts here.\",\"tour_days\":\"11 Nights\\/12 Days\",\"tour_location\":\"Varanasi - Manali\",\"description\":\"<p>Located at the base of the Zabarwan Mountain is the Indira Gandhi Memorial Tulip Garden Asia&rsquo;s largest tulip garden and a key attraction in Srinagar. This seven-terraced garden is celebrated for its 48 varieties of tulip flowers, appealing to both adults and children alike.<\\/p>\\r\\n\\r\\n<p>The garden is also home to a diverse array of other flowers, including daffodils, hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing through the terraces enhances the garden&rsquo;s beauty, providing an idyllic setting for memorable photographs.<\\/p>\\r\\n\\r\\n<p>The garden is also home to a diverse array of other flowers, including daffodils, hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing through the terraces enhances the garden&rsquo;s beauty, providing an idyllic setting for memorable photographs.<\\/p>\\r\\n\\r\\n<p>The garden is also home to a diverse array of other flowers, including daffodils, hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing through the terraces enhances the garden&rsquo;s beauty, providing an idyllic setting for memorable photographs.<\\/p>\\r\\n\\r\\n<p>Located at the base of the Zabarwan Mountain is the Indira Gandhi Memorial Tulip Garden Asia&rsquo;s largest tulip garden and a key attraction in Srinagar. This seven-terraced garden is celebrated for its 48 varieties of tulip flowers, appealing to both adults and children alike.<\\/p>\\r\\n\\r\\n<p>The garden is also home to a diverse array of other flowers, including daffodils, hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing through the terraces enhances the garden&rsquo;s beauty, providing an idyllic setting for memorable photographs.<\\/p>\\r\\n\\r\\n<p>The garden is also home to a diverse array of other flowers, including daffodils, hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing through the terraces enhances the garden&rsquo;s beauty, providing an idyllic setting for memorable photographs.<\\/p>\\r\\n\\r\\n<p>The garden is also home to a diverse array of other flowers, including daffodils, hyacinths, roses, narcissus, and various ornamental plants. A water channel flowing through the terraces enhances the garden&rsquo;s beauty, providing an idyllic setting for memorable photographs.<\\/p>\",\"price\":\"11,000\",\"stars\":\"4.5\",\"reviews\":\"1.5k\",\"attractions\":[\"10 Night \\/ 11 Days\",\"Hotel + Meals + Cab\",\"Sightseeing Included\"],\"packagedetailsinsert\":{\"1\":{\"order_num\":\"1\",\"name\":\"Day 1: Varanasi \\u2192 Delhi (By Train or Flight)\",\"description\":\"Morning: Board a flight\\/train from Varanasi to Delhi.\\r\\nAfternoon: Check in to hotel.\\r\\nEvening: Quick sightseeing \\u2013 India Gate, Connaught Place, or Akshardham Temple.\",\"id\":\"1\",\"_remove_\":\"0\"},\"2\":{\"order_num\":\"2\",\"name\":\"Day 2: Delhi \\u2192 Manali (By Overnight Volvo or Private Cab)\",\"description\":\"Morning: Local sightseeing or rest.\\r\\nEvening: Board a Volvo bus or hire a cab to Manali (12-14 hrs).\\r\\nOvernight: In transit.\",\"id\":\"2\",\"_remove_\":\"0\"}},\"seo_title\":\"Varanasi Title\",\"seo_description\":\"Varanasi Description\",\"seo_keyword\":\"Varanasi Keyword\",\"is_featured\":\"1\",\"is_featured_cb\":\"on\",\"_token\":\"khzyVcYoAKJo5yjY1C6UzMgZCEhe1ifJfkrZwWMB\",\"_method\":\"PUT\"}', '2025-06-26 05:39:48', '2025-06-26 05:39:48'),
-(624, 1, 'admin/packages', 'GET', '127.0.0.1', '[]', '2025-06-26 05:39:48', '2025-06-26 05:39:48');
+(624, 1, 'admin/packages', 'GET', '127.0.0.1', '[]', '2025-06-26 05:39:48', '2025-06-26 05:39:48'),
+(625, 1, 'admin', 'GET', '127.0.0.1', '[]', '2025-06-27 23:40:42', '2025-06-27 23:40:42'),
+(626, 1, 'admin/destinations', 'GET', '127.0.0.1', '[]', '2025-06-27 23:40:49', '2025-06-27 23:40:49'),
+(627, 1, 'admin/destinations/create', 'GET', '127.0.0.1', '[]', '2025-06-27 23:40:53', '2025-06-27 23:40:53'),
+(628, 1, 'admin/destinations', 'GET', '127.0.0.1', '[]', '2025-06-27 23:41:28', '2025-06-27 23:41:28'),
+(629, 1, 'admin', 'GET', '127.0.0.1', '[]', '2025-06-29 23:12:41', '2025-06-29 23:12:41'),
+(630, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2025-06-29 23:27:40', '2025-06-29 23:27:40'),
+(631, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2025-06-29 23:29:57', '2025-06-29 23:29:57'),
+(632, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2025-06-29 23:30:14', '2025-06-29 23:30:14'),
+(633, 1, 'admin/auth/menu', 'POST', '127.0.0.1', '{\"parent_id\":\"0\",\"search_terms\":null,\"title\":\"Booking\",\"icon\":\"icon-address-book\",\"uri\":\"bookings\",\"roles\":[\"1\",null],\"permission\":\"*\",\"_token\":\"M2WzhLAoO2aSM5K6IOnTxehnPwfIc14IYYy1wEZF\"}', '2025-06-29 23:30:29', '2025-06-29 23:30:29'),
+(634, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2025-06-29 23:30:30', '2025-06-29 23:30:30'),
+(635, 1, 'admin/auth/menu', 'GET', '127.0.0.1', '[]', '2025-06-29 23:30:31', '2025-06-29 23:30:31'),
+(636, 1, 'admin/bookings', 'GET', '127.0.0.1', '[]', '2025-06-29 23:30:33', '2025-06-29 23:30:33'),
+(637, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2025-06-29 23:30:59', '2025-06-29 23:30:59'),
+(638, 1, 'admin/helpers/scaffold', 'POST', '127.0.0.1', '{\"table_name\":\"title\",\"model_name\":\"App\\\\Models\\\\Title\",\"controller_name\":\"App\\\\Admin\\\\Controllers\\\\SeoTitleController\",\"create\":[\"migration\",\"model\",\"controller\",\"migrate\",\"menu_item\"],\"fields\":[{\"name\":\"seo_title_home\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_home\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_home\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_home\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_contact\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_contact\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_contact\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_contact\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_destination\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_destination\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_destination\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_destination\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_package\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_package\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_package\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_package\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null}],\"timestamps\":\"on\",\"primary_key\":\"id\",\"_token\":\"M2WzhLAoO2aSM5K6IOnTxehnPwfIc14IYYy1wEZF\"}', '2025-06-29 23:48:03', '2025-06-29 23:48:03'),
+(639, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2025-06-29 23:48:04', '2025-06-29 23:48:04'),
+(640, 1, 'admin/helpers/scaffold', 'POST', '127.0.0.1', '{\"table_name\":\"title\",\"model_name\":\"App\\\\Models\\\\Title\",\"controller_name\":\"App\\\\Admin\\\\Controllers\\\\SeoTitleController\",\"create\":[\"migration\",\"model\",\"controller\",\"migrate\",\"menu_item\"],\"fields\":[{\"name\":\"seo_title_home\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_home\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_home\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_home\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_contact\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_contact\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_contact\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_contact\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_destination\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_destination\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_destination\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_destination\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_package\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_package\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_package\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_package\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null}],\"timestamps\":\"on\",\"primary_key\":\"id\",\"_token\":\"M2WzhLAoO2aSM5K6IOnTxehnPwfIc14IYYy1wEZF\"}', '2025-06-29 23:49:01', '2025-06-29 23:49:01'),
+(641, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2025-06-29 23:49:02', '2025-06-29 23:49:02'),
+(642, 1, 'admin/helpers/scaffold', 'POST', '127.0.0.1', '{\"table_name\":\"title\",\"model_name\":\"App\\\\Models\\\\Title\",\"controller_name\":\"App\\\\Admin\\\\Controllers\\\\SeoTitleController\",\"create\":[\"migration\",\"model\",\"controller\",\"migrate\",\"menu_item\"],\"fields\":[{\"name\":\"seo_title_home\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_home\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_home\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_home\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_contact\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_contact\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_contact\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_contact\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_destination\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_destination\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_destination\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_destination\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_title_package\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_des_package\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_key_package\",\"type\":\"text\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null},{\"name\":\"seo_image_package\",\"type\":\"string\",\"nullable\":\"on\",\"key\":null,\"default\":null,\"comment\":null}],\"timestamps\":\"on\",\"primary_key\":\"id\",\"_token\":\"M2WzhLAoO2aSM5K6IOnTxehnPwfIc14IYYy1wEZF\"}', '2025-06-29 23:49:21', '2025-06-29 23:49:21'),
+(643, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2025-06-29 23:49:23', '2025-06-29 23:49:23'),
+(644, 1, 'admin/helpers/scaffold', 'GET', '127.0.0.1', '[]', '2025-06-29 23:51:43', '2025-06-29 23:51:43'),
+(645, 1, 'admin/titles', 'GET', '127.0.0.1', '[]', '2025-06-29 23:51:45', '2025-06-29 23:51:45'),
+(646, 1, 'admin/titles/create', 'GET', '127.0.0.1', '[]', '2025-06-29 23:51:47', '2025-06-29 23:51:47'),
+(647, 1, 'admin/titles', 'POST', '127.0.0.1', '{\"seo_title_home\":\"home Titile\",\"seo_des_home\":\"Home description\",\"seo_key_home\":\"home keywords\",\"seo_image_home\":null,\"seo_title_contact\":\"Contact title\",\"seo_des_contact\":\"Contact Description\",\"seo_key_contact\":\"Contact keyword\",\"seo_image_contact\":null,\"seo_title_destination\":\"Destination Title\",\"seo_des_destination\":\"Destination Description\",\"seo_key_destination\":\"Destination keyword\",\"seo_image_destination\":null,\"seo_title_package\":\"Package Title\",\"seo_des_package\":\"Package description\",\"seo_key_package\":\"Package Keyword\",\"seo_image_package\":null,\"_token\":\"M2WzhLAoO2aSM5K6IOnTxehnPwfIc14IYYy1wEZF\"}', '2025-06-29 23:54:24', '2025-06-29 23:54:24'),
+(648, 1, 'admin/titles', 'GET', '127.0.0.1', '[]', '2025-06-29 23:54:24', '2025-06-29 23:54:24'),
+(649, 1, 'admin/titles', 'GET', '127.0.0.1', '[]', '2025-06-29 23:55:01', '2025-06-29 23:55:01'),
+(650, 1, 'admin/titles/1/edit', 'GET', '127.0.0.1', '[]', '2025-06-30 00:04:44', '2025-06-30 00:04:44'),
+(651, 1, 'admin/titles/1/edit', 'GET', '127.0.0.1', '[]', '2025-06-30 00:05:27', '2025-06-30 00:05:27'),
+(652, 1, 'admin/titles/1', 'PUT', '127.0.0.1', '{\"seo_title_home\":\"home Titile\",\"seo_des_home\":\"Home description\",\"seo_key_home\":\"home keywords\",\"seo_title_contact\":\"Contact title\",\"seo_des_contact\":\"Contact Description\",\"seo_key_contact\":\"Contact keyword\",\"seo_title_destination\":\"Destination Title\",\"seo_des_destination\":\"Destination Description\",\"seo_key_destination\":\"Destination keyword\",\"seo_title_package\":\"Package Title\",\"seo_des_package\":\"Package description\",\"seo_key_package\":\"Package Keyword\",\"_token\":\"M2WzhLAoO2aSM5K6IOnTxehnPwfIc14IYYy1wEZF\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/127.0.0.1:8000\\/admin\\/titles\"}', '2025-06-30 00:09:22', '2025-06-30 00:09:22'),
+(653, 1, 'admin/titles', 'GET', '127.0.0.1', '[]', '2025-06-30 00:09:23', '2025-06-30 00:09:23'),
+(654, 1, 'admin/titles/1/edit', 'GET', '127.0.0.1', '[]', '2025-06-30 00:11:06', '2025-06-30 00:11:06'),
+(655, 1, 'admin/titles', 'GET', '127.0.0.1', '[]', '2025-06-30 00:11:09', '2025-06-30 00:11:09'),
+(656, 1, 'admin', 'GET', '127.0.0.1', '[]', '2025-06-30 23:54:00', '2025-06-30 23:54:00'),
+(657, 1, 'admin/destinations', 'GET', '127.0.0.1', '[]', '2025-06-30 23:54:21', '2025-06-30 23:54:21'),
+(658, 1, 'admin/destinations/1/edit', 'GET', '127.0.0.1', '[]', '2025-06-30 23:54:25', '2025-06-30 23:54:25'),
+(659, 1, 'admin/regions', 'GET', '127.0.0.1', '[]', '2025-06-30 23:54:56', '2025-06-30 23:54:56'),
+(660, 1, 'admin/durations', 'GET', '127.0.0.1', '[]', '2025-06-30 23:55:10', '2025-06-30 23:55:10'),
+(661, 1, 'admin/packages', 'GET', '127.0.0.1', '[]', '2025-06-30 23:55:14', '2025-06-30 23:55:14'),
+(662, 1, 'admin/packages/1/edit', 'GET', '127.0.0.1', '[]', '2025-06-30 23:55:16', '2025-06-30 23:55:16'),
+(663, 1, 'admin/titles', 'GET', '127.0.0.1', '[]', '2025-06-30 23:56:23', '2025-06-30 23:56:23'),
+(664, 1, 'admin/titles/1/edit', 'GET', '127.0.0.1', '[]', '2025-06-30 23:56:25', '2025-06-30 23:56:25'),
+(665, 1, 'admin/packages', 'GET', '127.0.0.1', '[]', '2025-07-01 00:01:02', '2025-07-01 00:01:02'),
+(666, 1, 'admin/destinations', 'GET', '127.0.0.1', '[]', '2025-07-01 00:01:02', '2025-07-01 00:01:02'),
+(667, 1, 'admin/home-banners', 'GET', '127.0.0.1', '[]', '2025-07-01 00:01:03', '2025-07-01 00:01:03');
 
 -- --------------------------------------------------------
 
@@ -788,7 +833,8 @@ CREATE TABLE `admin_role_menu` (
 
 INSERT INTO `admin_role_menu` (`role_id`, `menu_id`, `created_at`, `updated_at`) VALUES
 (1, 2, NULL, NULL),
-(1, 26, NULL, NULL);
+(1, 26, NULL, NULL),
+(1, 27, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -863,6 +909,25 @@ INSERT INTO `admin_users` (`id`, `username`, `password`, `name`, `avatar`, `reme
 CREATE TABLE `admin_user_permissions` (
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `tour_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `persons` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `children` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1084,7 +1149,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (14, '2025_06_24_113528_create_travelertype_table', 10),
 (15, '2025_06_24_120242_create_experiencetype_table', 11),
 (16, '2025_06_25_053601_create_package_table', 12),
-(17, '2025_06_26_060001_create_package_details_insert_table', 13);
+(17, '2025_06_26_060001_create_package_details_insert_table', 13),
+(18, '2025_06_25_105833_create_testimonial_table', 14),
+(19, '2025_06_28_063559_create_booking_table', 15),
+(20, '2025_06_30_051921_create_title_table', 15);
 
 -- --------------------------------------------------------
 
@@ -1242,10 +1310,45 @@ CREATE TABLE `testimonial` (
 --
 
 INSERT INTO `testimonial` (`id`, `name`, `company`, `title`, `image`, `position`, `message`, `review_date`, `description`, `created_at`, `updated_at`) VALUES
-(2, 'karan prajapat', 'a2group', 'jkjdklj', 'images/image1.jpg', 'CEO', 'kdljkldjl', '2025-06-25', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiu  tempor incididunt ut labore et dolore magna aliqua.', '2025-06-25 05:41:08', '2025-06-25 07:51:03'),
-(3, 'ajay', 'a2group', 'jdkljdjkljd', 'images/Image1_1200x1200.webp', 'developer', 'jdkljljdl', '2025-06-27', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.', '2025-06-25 05:45:45', '2025-06-25 07:51:58'),
-(4, 'rohit', 'ITcompany', 'lkdLKLFKD', 'images/image4.jpg', 'Designer', 'jfkjljfl', '2025-06-20', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmo tempor incididunt ut labore et dolore magna aliqua.', '2025-06-25 05:47:05', '2025-06-25 07:54:42'),
-(5, 'ravi', 'RC Company', 'kl;dkl;dk', 'images/image5.jpg', 'manger', 'lkdlkld', '2025-06-20', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '2025-06-25 05:48:14', '2025-06-25 07:52:38');
+(2, 'karan prajapat', 'a2group', 'jkjdklj', 'images/image1.jpg', 'CEO', 'kdljkldjl', '2025-06-25', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiu  tempor incididunt ut labore et dolore magna aliqua.', '2025-06-25 00:11:08', '2025-06-25 02:21:03'),
+(3, 'ajay', 'a2group', 'jdkljdjkljd', 'images/Image1_1200x1200.webp', 'developer', 'jdkljljdl', '2025-06-27', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.', '2025-06-25 00:15:45', '2025-06-25 02:21:58'),
+(4, 'rohit', 'ITcompany', 'lkdLKLFKD', 'images/image4.jpg', 'Designer', 'jfkjljfl', '2025-06-20', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmo tempor incididunt ut labore et dolore magna aliqua.', '2025-06-25 00:17:05', '2025-06-25 02:24:42'),
+(5, 'ravi', 'RC Company', 'kl;dkl;dk', 'images/image5.jpg', 'manger', 'lkdlkld', '2025-06-20', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '2025-06-25 00:18:14', '2025-06-25 02:22:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `title`
+--
+
+CREATE TABLE `title` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `seo_title_home` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_des_home` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_key_home` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_image_home` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title_contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_des_contact` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_key_contact` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_image_contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title_destination` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_des_destination` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_key_destination` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_image_destination` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title_package` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_des_package` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_key_package` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_image_package` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `title`
+--
+
+INSERT INTO `title` (`id`, `seo_title_home`, `seo_des_home`, `seo_key_home`, `seo_image_home`, `seo_title_contact`, `seo_des_contact`, `seo_key_contact`, `seo_image_contact`, `seo_title_destination`, `seo_des_destination`, `seo_key_destination`, `seo_image_destination`, `seo_title_package`, `seo_des_package`, `seo_key_package`, `seo_image_package`, `created_at`, `updated_at`) VALUES
+(1, 'home Titile', 'Home description', 'home keywords', 'images/Detailes-image_5.webp', 'Contact title', 'Contact Description', 'Contact keyword', 'images/Contactimg_2.webp', 'Destination Title', 'Destination Description', 'Destination keyword', 'images/Baner_1.webp', 'Package Title', 'Package description', 'Package Keyword', 'images/peric_1.webp', '2025-06-29 23:54:24', '2025-06-30 00:09:23');
 
 -- --------------------------------------------------------
 
@@ -1388,6 +1491,12 @@ ALTER TABLE `admin_user_permissions`
   ADD KEY `admin_user_permissions_user_id_permission_id_index` (`user_id`,`permission_id`);
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `budget`
 --
 ALTER TABLE `budget`
@@ -1475,6 +1584,12 @@ ALTER TABLE `testimonial`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `title`
+--
+ALTER TABLE `title`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `toure_details_insert`
 --
 ALTER TABLE `toure_details_insert`
@@ -1501,13 +1616,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin_menu`
 --
 ALTER TABLE `admin_menu`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `admin_operation_log`
 --
 ALTER TABLE `admin_operation_log`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=625;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=668;
 
 --
 -- AUTO_INCREMENT for table `admin_permissions`
@@ -1526,6 +1641,12 @@ ALTER TABLE `admin_roles`
 --
 ALTER TABLE `admin_users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `budget`
@@ -1573,7 +1694,7 @@ ALTER TABLE `home_banner`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `package`
@@ -1603,7 +1724,13 @@ ALTER TABLE `region`
 -- AUTO_INCREMENT for table `testimonial`
 --
 ALTER TABLE `testimonial`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `title`
+--
+ALTER TABLE `title`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `toure_details_insert`

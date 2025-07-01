@@ -47,9 +47,6 @@
     </url>
     @endforeach
 
-
-   
-
      <url>
         <loc>{{url('/contact-us')}}</loc>
         <lastmod>2025-06-02T07:54:52+00:00</lastmod>
